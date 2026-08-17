@@ -2,6 +2,8 @@
 #define FLOTA_H
 
 
+using namespace std::string_literals;
+
 #include "Kosmoplatan.h"
 
 
@@ -19,6 +21,10 @@ struct KryteriumMocy{
 
 struct EkstraktorNazwy{
 
+    std::string operator()(const Kosmoplatan* statek) const{
+        if (statek) return statek->getNazwa();
+        return ""s;
+    }
 
 };
 
