@@ -7,7 +7,10 @@ using namespace std::string_literals;
 #include "Kosmoplatan.h"
 #include <vector>
 #include <algorithm>
-
+#include <numeric>
+#include <functional>
+#include <iterator>
+#include <string>
 
 
 struct KryteriumMocy{
