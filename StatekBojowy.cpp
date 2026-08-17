@@ -7,5 +7,6 @@ double StatekBojowy::obliczZasieg() const{
     return oblicz;
 }
 void StatekBojowy::wyswietl() const{
-    
+    Kosmoplatan::wyswietl();
+    std::cout << " | [Bojowy] Sila ognia: " << silaOgnia << std::endl;
 }
