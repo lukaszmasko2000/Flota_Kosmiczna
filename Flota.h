@@ -5,6 +5,7 @@
 using namespace std::string_literals;
 
 #include "Kosmoplatan.h"
+#include <vector>
 
 
 struct KryteriumMocy{
@@ -35,6 +36,8 @@ class Flota
 
 
 
+private:
+    std::vector<Kosmoplatan*> statki;
 
 };
 
