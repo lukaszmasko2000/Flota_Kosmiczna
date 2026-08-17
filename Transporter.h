@@ -10,7 +10,10 @@ class Transporter
 public:
     Transporter(const std::string& nazwa, int masa, int mocNapedu, int _ladownosc)
         : Kosmoplatan(nazwa,masa,mocNapedu) , ladownosc(_ladownosc){}
-    
+
+    double obliczZasieg() const override;
+    void wyswietl() const override;
+
 private:
     int ladownosc;
 };
