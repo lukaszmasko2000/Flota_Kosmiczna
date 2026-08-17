@@ -6,6 +6,8 @@ using namespace std::string_literals;
 
 #include "Kosmoplatan.h"
 #include <vector>
+#include <algorithm>
+
 
 
 struct KryteriumMocy{
@@ -32,8 +34,13 @@ struct EkstraktorNazwy{
 
 class Flota
 {
-
-
+public:
+    Flota() = default;
+    ~Flota() {
+        std::cout << "\n--- Czyszczenie pamieci Floty ---" << std::endl;
+        std::for_each(statki.begin(), statki.end(), [](Kosmoplatan* ptr) {delete ptr;});
+        statki.clear();
+    }
 
 
 private:
