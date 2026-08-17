@@ -18,6 +18,10 @@ public:
     virtual double obliczZasieg() const = 0;
     virtual void wyswietl() const = 0;
 
+    [[nodiscard]] const std::string& getNazwa() const { return nazwa; }
+    [[nodiscard]] int getMasa() const { return masa; }
+    [[nodiscard]] int getMocNapedu() const { return mocNapedu; }
+
 private:
     std::string nazwa;
     int masa;
