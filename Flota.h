@@ -49,6 +49,15 @@ public:
     }
 
 
+    void wyswietlFlote() const;
+    void sortujPoZasiegu() const;
+    int zliczPowyzejMocy(int) const;
+    void usunCiezkie(int);
+    int obliczCalkowitaMoc() const;
+    void pobierzSzybkieStatki(std::vector<Kosmoplatan*>&, double) const;
+    void eksportujNazwy() const;
+
+
 private:
     std::vector<Kosmoplatan*> statki;
 
