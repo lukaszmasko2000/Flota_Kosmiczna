@@ -43,6 +43,12 @@ public:
     }
 
 
+    void dodajStatek(Kosmoplatan* s)
+    {
+        if(s) statki.push_back(s);
+    }
+
+
 private:
     std::vector<Kosmoplatan*> statki;
 
