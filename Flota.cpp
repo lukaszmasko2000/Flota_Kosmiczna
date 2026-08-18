@@ -4,7 +4,7 @@
 //TODO TOMMOROW
 
 void Flota::wyswietlFlote() const{
-
+    std::for_each(statki.begin(), statki.end(), [](const Kosmoplatan* ptr){ ptr->wyswietl(); });
 }
 void Flota::sortujPoZasiegu() const{
 
