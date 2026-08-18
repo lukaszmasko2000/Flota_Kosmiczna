@@ -7,7 +7,12 @@ void Flota::wyswietlFlote() const{
     std::for_each(statki.begin(), statki.end(), [](const Kosmoplatan* ptr){ ptr->wyswietl(); });
 }
 void Flota::sortujPoZasiegu() const{
-
+    std::sort(
+        statki.begin(), 
+        statki.end(), 
+        [](const Kosmoplatan* ptr1, const Kosmoplatan* ptr2){
+            return ptr1->obliczZasieg() > ptr2->obliczZasieg();            
+        });
 }
 int Flota::zliczPowyzejMocy(int minMoc) const{
 
