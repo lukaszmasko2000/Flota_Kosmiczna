@@ -58,11 +58,16 @@ void Flota::pobierzSzybkieStatki(std::vector<Kosmoplatan*>& cel, double minZasie
         statki.begin(),
         statki.end(),
         std::back_inserter(cel),
-        [minZasieg](Kosmoplatan* ptr) {
+        [minZasieg](const Kosmoplatan* ptr) {
                 return ptr->obliczZasieg() >= minZasieg;
         }
     );
 }
 void Flota::eksportujNazwy() const{
-
+    std::transform(
+            statki.begin(),
+            statki.end(),
+            std::ostream_iterator<std::string>(std::cout, "\n"),
+            [](const Kosmoplatan* ptr) { return ptr->getNazwa(); }
+        );
 }
