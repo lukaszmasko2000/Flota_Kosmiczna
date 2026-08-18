@@ -54,7 +54,7 @@ public:
 
 
     void wyswietlFlote() const;
-    void sortujPoZasiegu() const;
+    void sortujPoZasiegu();
     int zliczPowyzejMocy(int) const;
     void usunCiezkie(int);
     int obliczCalkowitaMoc() const;
