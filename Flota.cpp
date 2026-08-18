@@ -39,7 +39,19 @@ void Flota::usunCiezkie(int maxMasa){
             }),statki.end());
 }
 int Flota::obliczCalkowitaMoc() const{
-
+    auto sum{
+        std::accumulate(
+            statki.begin(),
+            statki.end(),
+            0,
+            std::bind(
+                std::plus<int>(),
+                std::placeholders::_1,
+                std::bind([](const Kosmoplatan* ptr) {return ptr->getMocNapedu();}, std::placeholders::_2)
+            )
+        )
+    };
+    return sum;
 }
 void Flota::pobierzSzybkieStatki(std::vector<Kosmoplatan*>& cel, double minZasieg) const{
 
