@@ -54,7 +54,14 @@ int Flota::obliczCalkowitaMoc() const{
     return sum;
 }
 void Flota::pobierzSzybkieStatki(std::vector<Kosmoplatan*>& cel, double minZasieg) const{
-
+    std::copy_if(
+        statki.begin(),
+        statki.end(),
+        std::back_inserter(cel),
+        [minZasieg](Kosmoplatan* ptr) {
+                return ptr->obliczZasieg() >= minZasieg;
+        }
+    );
 }
 void Flota::eksportujNazwy() const{
 
