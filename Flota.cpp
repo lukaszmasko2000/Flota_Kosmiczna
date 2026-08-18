@@ -10,7 +10,7 @@ void Flota::sortujPoZasiegu(){
      std::sort(
          statki.begin(), 
          statki.end(), 
-         [](Kosmoplatan* ptr1, Kosmoplatan* ptr2){
+         [](const Kosmoplatan* ptr1, const Kosmoplatan* ptr2){
              return ptr1->obliczZasieg() > ptr2->obliczZasieg();            
         });
 }
