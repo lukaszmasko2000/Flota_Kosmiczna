@@ -2,8 +2,6 @@
 #define FLOTA_H
 
 
-using namespace std::string_literals;
-
 #include "Kosmoplatan.h"
 #include <vector>
 #include <algorithm>
@@ -11,6 +9,9 @@ using namespace std::string_literals;
 #include <functional>
 #include <iterator>
 #include <string>
+
+
+using namespace std::string_literals;
 
 
 struct KryteriumMocy{
