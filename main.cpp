@@ -8,9 +8,13 @@
 
 int main() {
 
-    Menu menu;
+    {
+        Menu menu;
+        menu.uruchomMenu();
+    }
+    std::cout << "\nNacisnij Enter, aby kontynuowac...";
+    std::cin.ignore(); 
+    std::cin.get();
 
-    menu.uruchomMenu();
-    
     return 0;
 }

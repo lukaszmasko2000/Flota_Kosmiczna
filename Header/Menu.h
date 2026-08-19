@@ -27,7 +27,7 @@ public:
 
 private:
     Flota flota;
-    void stop() const;
+    
 
 };
 #endif // MENU_H

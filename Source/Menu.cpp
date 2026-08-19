@@ -7,14 +7,6 @@
 //Also make the code more safer for users. For example for now I can give string value into int. Prevent it.
 
 
-void stop()
-{
-    std::cout << "\nNacisnij Enter, aby kontynuowac...";
-    std::cin.ignore(); // This throws away the leftover 'Enter' from your menu choice
-    std::cin.get();    // This actually pauses and waits for you to press Enter
-}
-
-
 void Menu::wyswietlMenu() const
 {
     std::cout << std::setfill('=') << std::setw(50) << "" << std::endl;
@@ -59,7 +51,9 @@ void Menu::uruchomMenu()
                 break;
             case 3:
                 flota.wyswietlFlote();
-                stop();
+                std::cout << "\nNacisnij Enter, aby kontynuowac...";
+                std::cin.ignore(); 
+                std::cin.get();    
                 std::system("cls");
                 break;
             case 4:
@@ -82,7 +76,6 @@ void Menu::uruchomMenu()
                 break;
             case 0:
                 std::cout << "Wyjscie z programu." << std::endl;
-                stop();
                 break;
             default:
                 std::cout << "Nieprawidlowy wybor. Sprobuj ponownie." << std::endl;
