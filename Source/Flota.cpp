@@ -50,12 +50,18 @@ int Flota::obliczCalkowitaMoc() const{
     return sum;
 }
 void Flota::pobierzSzybkieStatki(double minZasieg) const{
-    std::copy_if(
+    auto it_granica{
+        std::stable_partition(
+            statki.begin(),
+            statki.end(),
+            [minZasieg](std::unique_ptr<Kosmoplatan>& ptr){
+                return ptr->obliczZasieg() > minZasieg;
+            })};
+    std::for_each(
         statki.begin(),
-        statki.end(),
-        std::back_inserter(cel),
-        [minZasieg](const Kosmoplatan* ptr) {
-                return ptr->obliczZasieg() >= minZasieg;
+        it_granica,
+        [](std::unique_ptr<Kosmoplatan>& ptr){
+            std::cout << " -> Szybki statek: " << ptr->getNazwa() << " (Zasieg: " << ptr->obliczZasieg() << ")\n";
         }
     );
 }
