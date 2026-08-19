@@ -16,7 +16,7 @@ public:
     void wyswietlMenu() const;
 
 private:
-    
+    Flota flota;
 
 };
 #endif // MENU_H
