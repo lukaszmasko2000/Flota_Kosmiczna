@@ -3,13 +3,13 @@
 
 
 void Flota::wyswietlFlote() const{
-    std::for_each(statki.begin(), statki.end(), [](const Kosmoplatan* ptr){ ptr->wyswietl(); });
+    std::for_each(statki.begin(), statki.end(), [](const std::unique_ptr<Kosmoplatan>& ptr){ ptr->wyswietl(); });
 }
 void Flota::sortujPoZasiegu(){
      std::sort(
          statki.begin(), 
          statki.end(), 
-         [](const Kosmoplatan* ptr1, const Kosmoplatan* ptr2){
+         [](const std::unique_ptr<Kosmoplatan>& ptr1, const std::unique_ptr<Kosmoplatan>& ptr2){
              return ptr1->obliczZasieg() > ptr2->obliczZasieg();            
         });
 }
@@ -18,7 +18,7 @@ int Flota::zliczPowyzejMocy(int minMoc) const{
         std::count_if(
             statki.begin(),
             statki.end(),
-            [minMoc](const Kosmoplatan* ptr){
+            [minMoc](const std::unique_ptr<Kosmoplatan>& ptr){
                 return ptr->getMocNapedu() > minMoc;
             })
     };
@@ -30,11 +30,8 @@ void Flota::usunCiezkie(int maxMasa){
         std::remove_if(
             statki.begin(),
             statki.end(),
-            [maxMasa](const Kosmoplatan* ptr) {
-                if (ptr && ptr->getMasa() > maxMasa){
-                    delete ptr; return true;
-                }
-                return false;
+            [maxMasa](const std::unique_ptr<Kosmoplatan>& ptr) {
+                return ptr && ptr->getMasa() > maxMasa
             }),statki.end());
 }
 int Flota::obliczCalkowitaMoc() const{
@@ -52,7 +49,7 @@ int Flota::obliczCalkowitaMoc() const{
     };
     return sum;
 }
-void Flota::pobierzSzybkieStatki(std::vector<Kosmoplatan*>& cel, double minZasieg) const{
+void Flota::pobierzSzybkieStatki(double minZasieg) const{
     std::copy_if(
         statki.begin(),
         statki.end(),
