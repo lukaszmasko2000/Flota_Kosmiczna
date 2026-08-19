@@ -9,6 +9,7 @@
 #include <functional>
 #include <iterator>
 #include <string>
+#include <memory>
 
 
 using namespace std::string_literals;
@@ -67,7 +68,7 @@ public:
 
 
 private:
-    std::vector<Kosmoplatan*> statki;
+    std::vector<> statki;
 
 };
 
