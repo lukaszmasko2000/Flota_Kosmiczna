@@ -10,9 +10,13 @@
 class Menu
 {
 
+public:
+    Menu() = default;
+    ~Menu() = default;
+    void wyswietlMenu() const;
 
-
-
+private:
+    
 
 };
 #endif // MENU_H
