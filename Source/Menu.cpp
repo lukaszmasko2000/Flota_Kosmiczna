@@ -6,6 +6,7 @@
 //Make the menu more cool and useful.
 //Also make the code more safer for users. For example for now I can give string value into int. Prevent it.
 
+
 void Menu::wyswietlMenu() const
 {
     std::cout << std::setfill('=') << std::setw(50) << "" << std::endl;
@@ -42,6 +43,9 @@ void Menu::uruchomMenu()
                 break;
             case 3:
                 flota.wyswietlFlote();
+                std::cout << "\nNacisnij Enter, aby kontynuowac...";
+                std::cin.ignore(); // This throws away the leftover 'Enter' from your menu choice
+                std::cin.get();    // This actually pauses and waits for you to press Enter
                 break;
             case 4:
                 flota.sortujPoZasiegu();
