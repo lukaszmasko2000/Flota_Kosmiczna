@@ -31,10 +31,10 @@ void Menu::uruchomMenu()
         switch (wybor)
         {
             case 1:
-                // Dodaj statek bojowy
+                addStatekBojowy();
                 break;
             case 2:
-                // Dodaj transporter
+                addTransporter();
                 break;
             case 3:
                 flota.wyswietlFlote();
@@ -43,16 +43,16 @@ void Menu::uruchomMenu()
                 flota.sortujPoZasiegu();
                 break;
             case 5:
-                // Zlicz statki powyzej mocy
+                zliczStatkiPowyzejMocy();
                 break;
             case 6:
-                // Usun ciezkie statki
+                usunCiezkieStatki();
                 break;
             case 7:
                 std::cout << "Calkowita moc floty: " << flota.obliczCalkowitaMoc() << " MW" << std::endl;
                 break;
             case 8:
-                // Pobierz szybkie statki
+                pobierzSzybkieStatki();
                 break;
             case 9:
                 flota.eksportujNazwy();
