@@ -33,7 +33,7 @@ void Flota::usunCiezkie(int maxMasa){
     statki.erase(to_erase.begin(), to_erase.end());
 }
 int Flota::obliczCalkowitaMoc() const{
-    std::ranges::fold_left(
+   return std::ranges::fold_left(
         statki,
         0,
         std::bind(
@@ -44,23 +44,18 @@ int Flota::obliczCalkowitaMoc() const{
             }, 
             std::placeholders::_2)
         )
-    )
+    );
 }
 void Flota::pobierzSzybkieStatki(double minZasieg){
-    auto it_granica{
-        std::stable_partition(
-            statki.begin(),
-            statki.end(),
-            [minZasieg](const std::unique_ptr<Kosmoplatan>& ptr){
-                return ptr->obliczZasieg() > minZasieg;
-            })};
-    std::for_each(
-        statki.begin(),
-        it_granica,
-        [](const std::unique_ptr<Kosmoplatan>& ptr){
-            std::cout << " -> Szybki statek: " << ptr->getNazwa() << " (Zasieg: " << ptr->obliczZasieg() << ")\n";
-        }
-    );
+    auto it_granica = std::ranges::partition(statki, [minZasieg](const std::unique_ptr<Kosmoplatan>& ptr) {
+            return ptr->obliczZasieg() <= minZasieg;
+        });
+
+    std::ranges::for_each(it_granica, [](const std::unique_ptr<Kosmoplatan>& ptr) {
+        std::cout << " -> Szybki statek: "
+            << ptr->getNazwa()
+            << " (Zasieg: " << ptr->obliczZasieg() << ")\n";
+        });
 }
 void Flota::eksportujNazwy() const{
     std::transform(
