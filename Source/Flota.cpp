@@ -24,13 +24,13 @@ int Flota::zliczPowyzejMocy(int minMoc) const{
         });
 }
 void Flota::usunCiezkie(int maxMasa){
-    statki.erase(
-        std::remove_if(
-            statki.begin(),
-            statki.end(),
+    auto to_erase{
+        std::ranges::remove_if(
+            statki,
             [maxMasa](const std::unique_ptr<Kosmoplatan>& ptr) {
                 return ptr && ptr->getMasa() > maxMasa;
-            }),statki.end());
+            })};
+    statki.erase(to_erase.begin(), to_erase.end());
 }
 int Flota::obliczCalkowitaMoc() const{
     auto sum{
