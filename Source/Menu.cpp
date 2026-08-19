@@ -65,3 +65,59 @@ void Menu::uruchomMenu()
         }
     } while (wybor != 0);
 }
+
+
+
+void Menu::addStatekBojowy()
+{
+    std::string nazwa;
+    int masa, mocNapedu, silaOgnia;
+
+    std::cout << "Podaj nazwe statku bojowego: ";
+    std::cin >> nazwa;
+    std::cout << "Podaj mase statku (w tonach): ";
+    std::cin >> masa;
+    std::cout << "Podaj moc napedu statku (w MW): ";
+    std::cin >> mocNapedu;
+    std::cout << "Podaj sile ognia statku: ";
+    std::cin >> silaOgnia;
+
+    flota.dodajStatek(std::make_unique<StatekBojowy>(nazwa, masa, mocNapedu, silaOgnia));
+}
+void Menu::addTransporter()
+{
+    std::string nazwa;
+    int masa, mocNapedu, przestrzen;
+
+    std::cout << "Podaj nazwe transportera: ";
+    std::cin >> nazwa;
+    std::cout << "Podaj mase transportera (w tonach): ";
+    std::cin >> masa;
+    std::cout << "Podaj moc napedu transportera (w MW): ";
+    std::cin >> mocNapedu;
+    std::cout << "Podaj przestrzen transportera (w m^3): ";
+    std::cin >> przestrzen;
+
+    flota.dodajStatek(std::make_unique<Transporter>(nazwa, masa, mocNapedu, przestrzen));
+}
+void Menu::zliczStatkiPowyzejMocy()
+{
+    int moc;
+    std::cout << "Podaj moc do porownania: ";
+    std::cin >> moc;
+    std::cout << "Liczba statkow powyzej podanej mocy: " << flota.zliczPowyzejMocy(moc) << std::endl;
+}
+void Menu::usunCiezkieStatki()
+{
+    int masa;
+    std::cout << "Podaj mase do usuniecia: ";
+    std::cin >> masa;
+    flota.usunCiezkie(masa);
+}
+void Menu::pobierzSzybkieStatki()
+{
+    int predkosc;
+    std::cout << "Podaj predkosc do pobrania: ";
+    std::cin >> predkosc;
+    flota.pobierzSzybkieStatki(predkosc);
+}
