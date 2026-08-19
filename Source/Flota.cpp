@@ -10,12 +10,11 @@ void Flota::wyswietlFlote() const{
         });
 }
 void Flota::sortujPoZasiegu(){
-     std::sort(
-         statki.begin(), 
-         statki.end(), 
-         [](const std::unique_ptr<Kosmoplatan>& ptr1, const std::unique_ptr<Kosmoplatan>& ptr2){
-             return ptr1->obliczZasieg() > ptr2->obliczZasieg();            
-        });
+        std::ranges::sort(
+            statki,
+            [](const std::unique_ptr<Kosmoplatan>& ptr1, const std::unique_ptr<Kosmoplatan>& ptr2){
+             return ptr1->obliczZasieg() > ptr2->obliczZasieg();
+            });
 }
 int Flota::zliczPowyzejMocy(int minMoc) const{
     auto moc{
