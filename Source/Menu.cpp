@@ -1,10 +1,18 @@
-
+#include <limits>
 #include "Menu.h"
 
 
 //TODO TOMMOROW
 //Make the menu more cool and useful.
 //Also make the code more safer for users. For example for now I can give string value into int. Prevent it.
+
+
+void stop()
+{
+    std::cout << "\nNacisnij Enter, aby kontynuowac...";
+    std::cin.ignore(); // This throws away the leftover 'Enter' from your menu choice
+    std::cin.get();    // This actually pauses and waits for you to press Enter
+}
 
 
 void Menu::wyswietlMenu() const
@@ -26,12 +34,20 @@ void Menu::wyswietlMenu() const
 
 void Menu::uruchomMenu()
 {
-    int wybor;
+    auto wybor{0};
     do
     {
         wyswietlMenu();
         std::cout << "Wybierz opcje: ";
-        std::cin >> wybor;
+        if (!(std::cin >> wybor)) {
+            std::cout << "Blad: Nieprawidlowy znak. Wprowadz liczbe!\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin.get();
+            std::system("cls");
+            wybor = -1;
+            continue; 
+        }
 
         switch (wybor)
         {
@@ -43,9 +59,8 @@ void Menu::uruchomMenu()
                 break;
             case 3:
                 flota.wyswietlFlote();
-                std::cout << "\nNacisnij Enter, aby kontynuowac...";
-                std::cin.ignore(); // This throws away the leftover 'Enter' from your menu choice
-                std::cin.get();    // This actually pauses and waits for you to press Enter
+                stop();
+                std::system("cls");
                 break;
             case 4:
                 flota.sortujPoZasiegu();
@@ -67,6 +82,7 @@ void Menu::uruchomMenu()
                 break;
             case 0:
                 std::cout << "Wyjscie z programu." << std::endl;
+                stop();
                 break;
             default:
                 std::cout << "Nieprawidlowy wybor. Sprobuj ponownie." << std::endl;
