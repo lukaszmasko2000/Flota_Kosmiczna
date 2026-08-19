@@ -10,6 +10,7 @@
 #include <iterator>
 #include <string>
 #include <memory>
+#include <ranges>
 
 
 using namespace std::string_literals;
