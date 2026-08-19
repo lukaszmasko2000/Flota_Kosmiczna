@@ -17,16 +17,11 @@ void Flota::sortujPoZasiegu(){
             });
 }
 int Flota::zliczPowyzejMocy(int minMoc) const{
-    auto moc{
-        std::count_if(
-            statki.begin(),
-            statki.end(),
-            [minMoc](const std::unique_ptr<Kosmoplatan>& ptr){
-                return ptr->getMocNapedu() > minMoc;
-            })
-    };
-    
-    return moc;
+    return std::ranges::count_if(
+        statki,
+        [minMoc](const std::unique_ptr<Kosmoplatan>& ptr){
+            return ptr->getMocNapedu() > minMoc;
+        });
 }
 void Flota::usunCiezkie(int maxMasa){
     statki.erase(
