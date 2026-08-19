@@ -61,7 +61,7 @@ public:
     int zliczPowyzejMocy(int) const;
     void usunCiezkie(int);
     int obliczCalkowitaMoc() const;
-    void pobierzSzybkieStatki(std::vector<Kosmoplatan*>&, double) const;
+    void pobierzSzybkieStatki(double) const;
     void eksportujNazwy() const;
 
 
