@@ -33,19 +33,18 @@ void Flota::usunCiezkie(int maxMasa){
     statki.erase(to_erase.begin(), to_erase.end());
 }
 int Flota::obliczCalkowitaMoc() const{
-    auto sum{
-        std::accumulate(
-            statki.begin(),
-            statki.end(),
-            0,
-            std::bind(
-                std::plus<int>(),
-                std::placeholders::_1,
-                std::bind([](const std::unique_ptr<Kosmoplatan>& ptr) {return ptr->getMocNapedu();}, std::placeholders::_2)
-            )
+    std::ranges::fold_left(
+        statki,
+        0,
+        std::bind(
+            std::plus<int>(),
+            std::placeholders::_1,
+            std::bind([](const std::unique_ptr<Kosmoplatan>& ptr) { 
+                return ptr->getMocNapedu(); 
+            }, 
+            std::placeholders::_2)
         )
-    };
-    return sum;
+    )
 }
 void Flota::pobierzSzybkieStatki(double minZasieg){
     auto it_granica{
