@@ -58,9 +58,8 @@ void Flota::pobierzSzybkieStatki(double minZasieg){
         });
 }
 void Flota::eksportujNazwy() const{
-    std::transform(
-            statki.begin(),
-            statki.end(),
+    std::ranges::transform(
+            statki,
             std::ostream_iterator<std::string>(std::cout, "\n"),
             [](const std::unique_ptr<Kosmoplatan>& ptr) { return ptr->getNazwa(); }
         );
