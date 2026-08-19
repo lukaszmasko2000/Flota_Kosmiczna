@@ -19,6 +19,12 @@ public:
     void wyswietlMenu() const;
     void uruchomMenu();
 
+    void addStatekBojowy();
+    void addTransporter();
+    void zliczStatkiPowyzejMocy();
+    void usunCiezkieStatki();
+    void pobierzSzybkieStatki();
+
 private:
     Flota flota;
 
