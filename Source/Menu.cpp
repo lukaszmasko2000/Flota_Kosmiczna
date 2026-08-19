@@ -17,6 +17,51 @@ void Menu::wyswietlMenu() const
               << "8. Pobierz szybkie statki" << std::endl
               << "9. Eksport nazw wszystkich statkow" << std::endl
               << "0. Wyjscie z programu" << std::endl;
-    
+}
 
+void Menu::uruchomMenu()
+{
+    int wybor;
+    do
+    {
+        wyswietlMenu();
+        std::cout << "Wybierz opcje: ";
+        std::cin >> wybor;
+
+        switch (wybor)
+        {
+            case 1:
+                // Dodaj statek bojowy
+                break;
+            case 2:
+                // Dodaj transporter
+                break;
+            case 3:
+                flota.wyswietlFlote();
+                break;
+            case 4:
+                flota.sortujPoZasiegu();
+                break;
+            case 5:
+                // Zlicz statki powyzej mocy
+                break;
+            case 6:
+                // Usun ciezkie statki
+                break;
+            case 7:
+                std::cout << "Calkowita moc floty: " << flota.obliczCalkowitaMoc() << " MW" << std::endl;
+                break;
+            case 8:
+                // Pobierz szybkie statki
+                break;
+            case 9:
+                flota.eksportujNazwy();
+                break;
+            case 0:
+                std::cout << "Wyjscie z programu." << std::endl;
+                break;
+            default:
+                std::cout << "Nieprawidlowy wybor. Sprobuj ponownie." << std::endl;
+        }
+    } while (wybor != 0);
 }
