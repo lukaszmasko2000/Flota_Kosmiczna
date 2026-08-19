@@ -17,6 +17,7 @@ public:
     Menu() = default;
     ~Menu() = default;
     void wyswietlMenu() const;
+    void uruchomMenu();
 
 private:
     Flota flota;
