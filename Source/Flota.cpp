@@ -49,21 +49,21 @@ int Flota::obliczCalkowitaMoc() const{
     };
     return sum;
 }
-void Flota::pobierzSzybkieStatki(double minZasieg) const{
-    // auto it_granica{
-    //     std::stable_partition(
-    //         statki.begin(),
-    //         statki.end(),
-    //         [minZasieg](const std::unique_ptr<Kosmoplatan>& ptr){
-    //             return ptr->obliczZasieg() > minZasieg;
-    //         })};
-    // std::for_each(
-    //     statki.begin(),
-    //     it_granica,
-    //     [](const std::unique_ptr<Kosmoplatan>& ptr){
-    //         std::cout << " -> Szybki statek: " << ptr->getNazwa() << " (Zasieg: " << ptr->obliczZasieg() << ")\n";
-    //     }
-    // );
+void Flota::pobierzSzybkieStatki(double minZasieg){
+    auto it_granica{
+        std::stable_partition(
+            statki.begin(),
+            statki.end(),
+            [minZasieg](const std::unique_ptr<Kosmoplatan>& ptr){
+                return ptr->obliczZasieg() > minZasieg;
+            })};
+    std::for_each(
+        statki.begin(),
+        it_granica,
+        [](const std::unique_ptr<Kosmoplatan>& ptr){
+            std::cout << " -> Szybki statek: " << ptr->getNazwa() << " (Zasieg: " << ptr->obliczZasieg() << ")\n";
+        }
+    );
 }
 void Flota::eksportujNazwy() const{
     std::transform(

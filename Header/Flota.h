@@ -61,7 +61,7 @@ public:
     int zliczPowyzejMocy(int) const;
     void usunCiezkie(int);
     int obliczCalkowitaMoc() const;
-    void pobierzSzybkieStatki(double) const;
+    void pobierzSzybkieStatki(double);
     void eksportujNazwy() const;
 
 
