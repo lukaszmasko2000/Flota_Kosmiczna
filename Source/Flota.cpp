@@ -70,6 +70,6 @@ void Flota::eksportujNazwy() const{
             statki.begin(),
             statki.end(),
             std::ostream_iterator<std::string>(std::cout, "\n"),
-            [](const Kosmoplatan* ptr) { return ptr->getNazwa(); }
+            [](const std::unique_ptr<Kosmoplatan>& ptr) { return ptr->getNazwa(); }
         );
 }
