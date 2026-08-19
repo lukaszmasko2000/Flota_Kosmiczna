@@ -31,7 +31,7 @@ void Flota::usunCiezkie(int maxMasa){
             statki.begin(),
             statki.end(),
             [maxMasa](const std::unique_ptr<Kosmoplatan>& ptr) {
-                return ptr && ptr->getMasa() > maxMasa
+                return ptr && ptr->getMasa() > maxMasa;
             }),statki.end());
 }
 int Flota::obliczCalkowitaMoc() const{
@@ -43,7 +43,7 @@ int Flota::obliczCalkowitaMoc() const{
             std::bind(
                 std::plus<int>(),
                 std::placeholders::_1,
-                std::bind([](const Kosmoplatan* ptr) {return ptr->getMocNapedu();}, std::placeholders::_2)
+                std::bind([](const std::unique_ptr<Kosmoplatan>& ptr) {return ptr->getMocNapedu();}, std::placeholders::_2)
             )
         )
     };
