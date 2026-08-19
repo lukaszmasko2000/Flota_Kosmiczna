@@ -3,7 +3,11 @@
 
 
 void Flota::wyswietlFlote() const{
-    std::for_each(statki.begin(), statki.end(), [](const std::unique_ptr<Kosmoplatan>& ptr){ ptr->wyswietl(); });
+    std::ranges::for_each(
+        std::as_const(statki), 
+        [](const std::unique_ptr<Kosmoplatan>& ptr) { 
+            ptr->wyswietl(); 
+        });
 }
 void Flota::sortujPoZasiegu(){
      std::sort(
