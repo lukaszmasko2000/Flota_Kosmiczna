@@ -2,6 +2,10 @@
 #include "Menu.h"
 
 
+//TODO TOMMOROW
+//Make the menu more cool and useful.
+//Also make the code more safer for users. For example for now I can give string value into int. Prevent it.
+
 void Menu::wyswietlMenu() const
 {
     std::cout << std::setfill('=') << std::setw(50) << "" << std::endl;
