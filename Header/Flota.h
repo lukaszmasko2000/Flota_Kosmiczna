@@ -46,15 +46,13 @@ class Flota
 public:
     Flota() = default;
     ~Flota() {
-        std::cout << "\n--- Czyszczenie pamieci Floty ---" << std::endl;
-        std::for_each(statki.begin(), statki.end(), [](Kosmoplatan* ptr) {delete ptr;});
-        statki.clear();
+        std::cout << "\n--- Automatyczne czyszczenie pamieci Floty (unique_ptr) ---" << std::endl;
     }
 
 
-    void dodajStatek(Kosmoplatan* s)
+    void dodajStatek(std::unique_ptr<Kosmoplatan> s)
     {
-        if(s) statki.push_back(s);
+        if(s) statki.push_back(std::move(s));
     }
 
 
@@ -68,7 +66,7 @@ public:
 
 
 private:
-    std::vector<> statki;
+    std::vector<std::unique_ptr<Kosmoplatan>> statki;
 
 };
 
