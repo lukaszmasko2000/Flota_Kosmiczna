@@ -16,8 +16,6 @@ using namespace std::string_literals;
 
 
 
-//TODO TOMMOROW
-//I'll add smart pointers instead of manual allocation
 
 struct KryteriumMocy{
     int progMocy;
