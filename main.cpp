@@ -6,10 +6,9 @@
 #include "Flota.h"
 
 int main() {
-     std::cout << "=== TEST ROZPOCZETY (Alokacja obiektow) ===" << std::endl;
-    
-    // Blok ograniczający czas życia floty, w celu weryfikacji automatycznego czyszczenia pamięci
+
     std::cout << "=== TEST ROZPOCZETY (Bezpieczna alokacja unique_ptr) ===" << std::endl;
+    // Blok ograniczający czas życia floty, w celu weryfikacji automatycznego czyszczenia pamięci
     
     {
         Flota flota;
