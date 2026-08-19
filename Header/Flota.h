@@ -11,11 +11,10 @@
 #include <string>
 #include <memory>
 #include <ranges>
+#include <utility>
 
 
 using namespace std::string_literals;
-
-
 
 
 struct KryteriumMocy{
