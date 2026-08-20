@@ -52,9 +52,7 @@ void Flota::pobierzSzybkieStatki(double minZasieg){
         });
 
     std::ranges::for_each(it_granica, [](const std::unique_ptr<Kosmoplatan>& ptr) {
-        std::cout << " -> Szybki statek: "
-            << ptr->getNazwa()
-            << " (Zasieg: " << ptr->obliczZasieg() << ")\n";
+        std::print( " -> Szybki statek: {0}  (Zasięg: {1}) \n", ptr->getNazwa(), ptr->obliczZasieg());
         });
 }
 void Flota::eksportujNazwy() const{
