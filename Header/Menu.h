@@ -10,6 +10,7 @@
 #include "Kosmoplatan.h"
 #include "StatekBojowy.h"
 #include "Transporter.h"
+#include "CinBuf.h"
 
 class Menu
 {
@@ -27,7 +28,7 @@ public:
 
 private:
     Flota flota;
-    
+    CinBuf buff;
 
 };
 #endif // MENU_H

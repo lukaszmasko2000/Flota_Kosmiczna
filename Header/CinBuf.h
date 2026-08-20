@@ -2,6 +2,7 @@
 #define CIN_BUF_H
 
 #include <iostream>
+#include <limits>
 
 class CinBuf
 {
@@ -10,7 +11,7 @@ public:
     ~CinBuf() = default;
 
     void pressEnter() const;
-
+    int getInt(const std::string&);
 
 };
 

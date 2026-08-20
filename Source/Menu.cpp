@@ -1,4 +1,3 @@
-#include <limits>
 #include "Menu.h"
 
 
@@ -31,15 +30,7 @@ void Menu::uruchomMenu()
     {
         wyswietlMenu();
         std::cout << "Wybierz opcje: ";
-        if (!(std::cin >> wybor)) {
-            std::cout << "Blad: Nieprawidlowy znak. Wprowadz liczbe!\n";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cin.get();
-            std::system("cls");
-            wybor = -1;
-            continue; 
-        }
+        wybor = buff.getInt("Wybierz opcje: ");
 
         switch (wybor)
         {
@@ -51,10 +42,7 @@ void Menu::uruchomMenu()
                 break;
             case 3:
                 flota.wyswietlFlote();
-                std::cout << "\nNacisnij Enter, aby kontynuowac...";
-                std::cin.ignore(); 
-                std::cin.get();    
-                std::system("cls");
+                buff.pressEnter();
                 break;
             case 4:
                 flota.sortujPoZasiegu();
@@ -67,6 +55,7 @@ void Menu::uruchomMenu()
                 break;
             case 7:
                 std::cout << "Calkowita moc floty: " << flota.obliczCalkowitaMoc() << " MW" << std::endl;
+                buff.pressEnter();
                 break;
             case 8:
                 pobierzSzybkieStatki();
@@ -88,16 +77,12 @@ void Menu::uruchomMenu()
 void Menu::addStatekBojowy()
 {
     std::string nazwa;
-    int masa, mocNapedu, silaOgnia;
 
     std::cout << "Podaj nazwe statku bojowego: ";
     std::cin >> nazwa;
-    std::cout << "Podaj mase statku (w tonach): ";
-    std::cin >> masa;
-    std::cout << "Podaj moc napedu statku (w MW): ";
-    std::cin >> mocNapedu;
-    std::cout << "Podaj sile ognia statku: ";
-    std::cin >> silaOgnia;
+    auto masa { buff.getInt("Podaj mase statku (w tonach): ") };
+    auto mocNapedu { buff.getInt("Podaj moc napedu statku (w MW): ") };
+    auto silaOgnia {buff.getInt("Podaj sile ognia statku: ")};
 
     flota.dodajStatek(std::make_unique<StatekBojowy>(nazwa, masa, mocNapedu, silaOgnia));
 }
