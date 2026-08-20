@@ -12,6 +12,7 @@ public:
     ~CinBuf() = default;
 
     void pressEnter() const;
+    void clearScreen();
     int getInt(const std::string&);
     std::string getString(const std::string&);
 
