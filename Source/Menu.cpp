@@ -1,10 +1,9 @@
 #include "Menu.h"
 
 
-//TODO TOMMOROW
-//Make the menu more cool and useful.
-//Also make the code more safer for users. For example for now I can give string value into int. Prevent it.
-
+//TODO TOMORROW
+// Give some information when you choose the option. When you're printing "Starship navy", tell it.
+// Later try to change switch case condition into something more modern (no in one day, but try prepare code for it)
 
 void Menu::wyswietlMenu() const
 {
