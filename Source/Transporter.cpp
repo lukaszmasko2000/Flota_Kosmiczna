@@ -9,6 +9,5 @@ double Transporter::obliczZasieg() const
 void Transporter::wyswietl() const
 {
     Kosmoplatan::wyswietl();
-    // std::cout << " | [Transporter] Ladownosc: " << ladownosc << "t" << std::endl;
     std::print(" | [Transporter] Ladownosc: {0}t\n", ladownosc);
 }
