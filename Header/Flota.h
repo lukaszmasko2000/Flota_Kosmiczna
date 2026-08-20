@@ -21,7 +21,6 @@ class Flota
 public:
     Flota() = default;
     ~Flota() {
-        //std::cout << "\n--- Automatyczne czyszczenie pamieci Floty (unique_ptr) ---" << std::endl;
         std::println("{:-^59}", " Automatyczne czyszczenie pamieci Floty (unique_ptr) ");
     }
 
