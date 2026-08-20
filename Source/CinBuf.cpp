@@ -4,10 +4,13 @@
 
 void CinBuf::pressEnter() const
 {
-    std::cout << "\nNacisnij Enter, aby kontynuowac...";
-    std::cin.ignore(); 
-    std::cin.get();    
-    std::cout << "\033[2J\033[1;1H";
+    std::print("\nNacisnij Enter, aby kontynuowac...");
+    std::fflush(stdout);
+
+    std::cin.get();
+
+    std::print("\033[2J\033[1;1H");
+    std::fflush(stdout);
 }
 
 
@@ -19,6 +22,7 @@ int CinBuf::getInt(std::string_view prompt) {
         std::fflush(stdout); 
 
         if (std::cin >> temp) {
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             return temp;
         }
 
@@ -42,4 +46,5 @@ std::string CinBuf::getString(std::string_view prompt)
 void CinBuf::clearScreen()
 {
     std::print("\033[2J\033[1;1H");
+    std::fflush(stdout);
 }

@@ -13,7 +13,7 @@ void Menu::wyswietlMenu() const
     R"( 
 1. Dodaj statek bojowy
 2. Dodaj transporter
-3. Sortuj po zasiegu
+3. Wyswietl flote
 4. Sortuj po zasiegu
 5. Zlicz statki powyzej mocy
 6. Usun ciezkie statki
@@ -27,6 +27,7 @@ void Menu::wyswietlMenu() const
 void Menu::uruchomMenu()
 {
     auto wybor{0};
+
     do
     {
         wyswietlMenu();
@@ -66,7 +67,6 @@ void Menu::uruchomMenu()
                 break;
             case 7:
                 buff.clearScreen();
-                //std::cout << "Calkowita moc floty: " << flota.obliczCalkowitaMoc() << " MW" << std::endl;
                 std::print("Całkowita moc floty:{0} MW\n", flota.obliczCalkowitaMoc());
                 buff.pressEnter();
                 break;
