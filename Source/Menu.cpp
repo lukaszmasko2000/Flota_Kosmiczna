@@ -82,12 +82,12 @@ void Menu::uruchomMenu()
                 break;
             case 0:
                 buff.clearScreen();
-                std::cout << "Wyjscie z programu." << std::endl;
+                std::print("Wyjście z programu.\n");
                 buff.pressEnter();
                 break;
             default:
                 buff.clearScreen();
-                std::cout << "Nieprawidlowy wybor. Sprobuj ponownie." << std::endl;
+                std::print("Nieprawidlowy wybor. Sprobuj ponownie.\n");
                 buff.pressEnter();
         }
     } while (wybor != 0);
