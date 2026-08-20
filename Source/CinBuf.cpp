@@ -7,7 +7,7 @@ void CinBuf::pressEnter() const
     std::cout << "\nNacisnij Enter, aby kontynuowac...";
     std::cin.ignore(); 
     std::cin.get();    
-    std::system("cls");
+    std::cout << "\033[2J\033[1;1H";
 }
 
 
@@ -35,4 +35,9 @@ std::string CinBuf::getString(const std::string& prompt)
     std::cout << prompt;
     std::getline(std::cin >> std::ws, temp);
     return temp;
+}
+
+void CinBuf::clearScreen()
+{
+    std::cout << "\033[2J\033[1;1H";
 }
