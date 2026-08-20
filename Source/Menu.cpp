@@ -35,39 +35,59 @@ void Menu::uruchomMenu()
         switch (wybor)
         {
             case 1:
+                buff.clearScreen();
                 addStatekBojowy();
+                buff.pressEnter();
                 break;
             case 2:
+                buff.clearScreen();
                 addTransporter();
+                buff.pressEnter();
                 break;
             case 3:
+                buff.clearScreen();
                 flota.wyswietlFlote();
                 buff.pressEnter();
                 break;
             case 4:
+                buff.clearScreen();
                 flota.sortujPoZasiegu();
+                buff.pressEnter();
                 break;
             case 5:
+                buff.clearScreen();
                 zliczStatkiPowyzejMocy();
+                buff.pressEnter();
                 break;
             case 6:
+                buff.clearScreen();
                 usunCiezkieStatki();
+                buff.pressEnter();
                 break;
             case 7:
+                buff.clearScreen();
                 std::cout << "Calkowita moc floty: " << flota.obliczCalkowitaMoc() << " MW" << std::endl;
                 buff.pressEnter();
                 break;
             case 8:
+                buff.clearScreen();
                 pobierzSzybkieStatki();
+                buff.pressEnter();
                 break;
             case 9:
+                buff.clearScreen();
                 flota.eksportujNazwy();
+                buff.pressEnter();
                 break;
             case 0:
+                buff.clearScreen();
                 std::cout << "Wyjscie z programu." << std::endl;
+                buff.pressEnter();
                 break;
             default:
+                buff.clearScreen();
                 std::cout << "Nieprawidlowy wybor. Sprobuj ponownie." << std::endl;
+                buff.pressEnter();
         }
     } while (wybor != 0);
 }
