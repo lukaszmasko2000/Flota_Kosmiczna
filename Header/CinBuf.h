@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <limits>
+#include <string>
 
 class CinBuf
 {
@@ -12,6 +13,7 @@ public:
 
     void pressEnter() const;
     int getInt(const std::string&);
+    std::string getString(const std::string&);
 
 };
 
