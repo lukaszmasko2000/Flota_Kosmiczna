@@ -66,7 +66,8 @@ void Menu::uruchomMenu()
                 break;
             case 7:
                 buff.clearScreen();
-                std::cout << "Calkowita moc floty: " << flota.obliczCalkowitaMoc() << " MW" << std::endl;
+                //std::cout << "Calkowita moc floty: " << flota.obliczCalkowitaMoc() << " MW" << std::endl;
+                std::print("Całkowita moc floty:{0} MW\n", flota.obliczCalkowitaMoc());
                 buff.pressEnter();
                 break;
             case 8:
