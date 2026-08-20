@@ -89,16 +89,12 @@ void Menu::addStatekBojowy()
 void Menu::addTransporter()
 {
     std::string nazwa;
-    int masa, mocNapedu, przestrzen;
 
     std::cout << "Podaj nazwe transportera: ";
     std::cin >> nazwa;
-    std::cout << "Podaj mase transportera (w tonach): ";
-    std::cin >> masa;
-    std::cout << "Podaj moc napedu transportera (w MW): ";
-    std::cin >> mocNapedu;
-    std::cout << "Podaj przestrzen transportera (w m^3): ";
-    std::cin >> przestrzen;
+    auto masa{buff.getInt("Podaj mase transportera (w tonach): ")};
+    auto mocNapedu{buff.getInt("Podaj moc napedu transportera (w MW): ")};
+    auto przestrzen{buff.getInt("Podaj przestrzen transportera (w m^3): ")};
 
     flota.dodajStatek(std::make_unique<Transporter>(nazwa, masa, mocNapedu, przestrzen));
 }
