@@ -79,7 +79,7 @@ void Menu::addStatekBojowy()
     std::string nazwa;
 
     std::cout << "Podaj nazwe statku bojowego: ";
-    std::cin >> nazwa;
+    std::getline(std::cin >> std::ws, nazwa);
     auto masa { buff.getInt("Podaj mase statku (w tonach): ") };
     auto mocNapedu { buff.getInt("Podaj moc napedu statku (w MW): ") };
     auto silaOgnia {buff.getInt("Podaj sile ognia statku: ")};
