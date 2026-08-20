@@ -12,7 +12,6 @@ public:
         : nazwa(_nazwa), masa(_masa), mocNapedu(_mocNapedu){}
 
     virtual ~Kosmoplatan(){
-        //std::cout << "[Destruktor] Usuwanie obiektu: " << nazwa << std::endl;
         std::print("[Destruktor] Usuwanie obiektu: {}\n", nazwa);
     }
 
