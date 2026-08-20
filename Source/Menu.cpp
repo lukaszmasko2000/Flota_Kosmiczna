@@ -8,20 +8,20 @@
 
 void Menu::wyswietlMenu() const
 {
-    std::cout << std::setfill('=') << std::setw(50) << "" << '\n';
-    std::cout << "=== MENU GLOWNE ===" << std::endl;
-    std::cout << std::setfill('=') << std::setw(50) << "" << '\n';
-    std::cout << R"(1. Dodaj statek bojowy
-                    2. Dodaj transporter
-                    3. Sortuj po zasiegu
-                    4. Sortuj po zasiegu
-                    5. Zlicz statki powyzej mocy
-                    6. Usun ciezkie statki
-                    7. Oblicz calkowita moc floty
-                    8. Pobierz szybkie statki
-                    9. Eksport nazw wszystkich statkow
-                    0. Wyjscie z programu
-                    )";
+    std::println("{:=^50}", " MENU GLOWNE ");
+    std::print(
+    R"( 
+1. Dodaj statek bojowy
+2. Dodaj transporter
+3. Sortuj po zasiegu
+4. Sortuj po zasiegu
+5. Zlicz statki powyzej mocy
+6. Usun ciezkie statki
+7. Oblicz calkowita moc floty
+8. Pobierz szybkie statki
+9. Eksport nazw wszystkich statkow
+0. Wyjscie z programu
+> )");
 }
 
 void Menu::uruchomMenu()
@@ -30,7 +30,6 @@ void Menu::uruchomMenu()
     do
     {
         wyswietlMenu();
-        std::cout << "Wybierz opcje: ";
         wybor = buff.getInt("Wybierz opcje: ");
 
         switch (wybor)
