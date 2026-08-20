@@ -14,6 +14,9 @@ void CinBuf::pressEnter() const
 int CinBuf::getInt(const std::string& prompt)
 {
     auto temp{0};
+    
+    std::cout << prompt; 
+    
     while (!(std::cin >> temp)) {
         std::cout << "Blad: Nieprawidlowy znak. Wprowadz liczbe!\n";
         std::cin.clear();
@@ -21,9 +24,7 @@ int CinBuf::getInt(const std::string& prompt)
         
         std::cout << "Wcisnij Enter aby sprobowac ponownie...";
         std::cin.get();
-        std::system("cls"); 
-        
-        std::cout << prompt; // Reprint the menu prompt!
+        std::cout << "\n" << prompt; 
     }
     return temp;
 }
