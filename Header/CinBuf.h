@@ -4,6 +4,8 @@
 #include <iostream>
 #include <limits>
 #include <string>
+#include <print>
+#include <string_view>
 
 class CinBuf
 {
@@ -13,8 +15,8 @@ public:
 
     void pressEnter() const;
     void clearScreen();
-    int getInt(const std::string&);
-    std::string getString(const std::string&);
+    int getInt(std::string_view);
+    std::string getString(std::string_view);
 
 };
 

@@ -11,33 +11,35 @@ void CinBuf::pressEnter() const
 }
 
 
-int CinBuf::getInt(const std::string& prompt)
-{
-    auto temp{0};
-    
-    std::cout << prompt; 
-    
-    while (!(std::cin >> temp)) {
-        std::cout << "Blad: Nieprawidlowy znak. Wprowadz liczbe!\n";
+int CinBuf::getInt(std::string_view prompt) {
+    int temp{0};
+
+    while (true) {
+        std::print("{}", prompt);
+        std::fflush(stdout); 
+
+        if (std::cin >> temp) {
+            return temp;
+        }
+
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         
-        std::cout << "Wcisnij Enter aby sprobowac ponownie...";
-        std::cin.get();
-        std::cout << "\n" << prompt; 
+        std::println("Blad: Nieprawidlowy znak. Wprowadz liczbe!");
     }
-    return temp;
 }
 
-std::string CinBuf::getString(const std::string& prompt)
+std::string CinBuf::getString(std::string_view prompt)
 {
+    std::print("{}", prompt);
+    std::fflush(stdout); 
+
     std::string temp;
-    std::cout << prompt;
     std::getline(std::cin >> std::ws, temp);
     return temp;
 }
 
 void CinBuf::clearScreen()
 {
-    std::cout << "\033[2J\033[1;1H";
+    std::print("\033[2J\033[1;1H");
 }
