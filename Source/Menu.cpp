@@ -91,7 +91,7 @@ void Menu::addTransporter()
     std::string nazwa;
 
     std::cout << "Podaj nazwe transportera: ";
-    std::cin >> nazwa;
+    std::getline(std::cin >> std::ws, nazwa);
     auto masa{buff.getInt("Podaj mase transportera (w tonach): ")};
     auto mocNapedu{buff.getInt("Podaj moc napedu transportera (w MW): ")};
     auto przestrzen{buff.getInt("Podaj przestrzen transportera (w m^3): ")};
