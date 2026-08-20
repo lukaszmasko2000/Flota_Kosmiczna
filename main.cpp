@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "Kosmoplatan.h"
+#include "CinBuf.h"
 #include "Transporter.h"
 #include "StatekBojowy.h"
 #include "Flota.h"
@@ -8,13 +9,12 @@
 
 int main() {
 
+    CinBuf buff;
     {
         Menu menu;
         menu.uruchomMenu();
     }
-    std::cout << "\nNacisnij Enter, aby kontynuowac...";
-    std::cin.ignore(); 
-    std::cin.get();
+    buff.pressEnter();
 
     return 0;
 }
