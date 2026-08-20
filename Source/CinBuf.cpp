@@ -28,3 +28,11 @@ int CinBuf::getInt(const std::string& prompt)
     }
     return temp;
 }
+
+std::string CinBuf::getString(const std::string& prompt)
+{
+    std::string temp;
+    std::cout << prompt;
+    std::getline(std::cin >> std::ws, temp);
+    return temp;
+}
