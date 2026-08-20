@@ -2,7 +2,7 @@
 #define KOSMOPLATAN_H
 
 #include <iostream>
-
+#include <print>
 
 
 class Kosmoplatan
