@@ -85,10 +85,7 @@ void Menu::addStatekBojowy()
 }
 void Menu::addTransporter()
 {
-    std::string nazwa;
-
-    std::cout << "Podaj nazwe transportera: ";
-    std::getline(std::cin >> std::ws, nazwa);
+    auto nazwa {buff.getString("Podaj nazwe transportera: ")};
     auto masa{buff.getInt("Podaj mase transportera (w tonach): ")};
     auto mocNapedu{buff.getInt("Podaj moc napedu transportera (w MW): ")};
     auto przestrzen{buff.getInt("Podaj przestrzen transportera (w m^3): ")};
