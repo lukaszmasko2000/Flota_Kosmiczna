@@ -76,10 +76,7 @@ void Menu::uruchomMenu()
 
 void Menu::addStatekBojowy()
 {
-    std::string nazwa;
-
-    std::cout << "Podaj nazwe statku bojowego: ";
-    std::getline(std::cin >> std::ws, nazwa);
+    auto nazwa { buff.getString("Podaj nazwe statku bojowego: ") };
     auto masa { buff.getInt("Podaj mase statku (w tonach): ") };
     auto mocNapedu { buff.getInt("Podaj moc napedu statku (w MW): ") };
     auto silaOgnia {buff.getInt("Podaj sile ognia statku: ")};
@@ -100,22 +97,16 @@ void Menu::addTransporter()
 }
 void Menu::zliczStatkiPowyzejMocy()
 {
-    int moc;
-    std::cout << "Podaj moc do porownania: ";
-    std::cin >> moc;
+    auto moc {buff.getInt("Podaj moc do porownania: ")};
     std::cout << "Liczba statkow powyzej podanej mocy: " << flota.zliczPowyzejMocy(moc) << std::endl;
 }
 void Menu::usunCiezkieStatki()
-{
-    int masa;
-    std::cout << "Podaj mase do usuniecia: ";
-    std::cin >> masa;
+{    
+    auto masa {buff.getInt("Podaj mase do usuniecia: ")};
     flota.usunCiezkie(masa);
 }
 void Menu::pobierzSzybkieStatki()
 {
-    int predkosc;
-    std::cout << "Podaj predkosc do pobrania: ";
-    std::cin >> predkosc;
+    auto predkosc {buff.getInt("Podaj predkosc do pobrania: ")};
     flota.pobierzSzybkieStatki(predkosc);
 }
