@@ -72,8 +72,20 @@ void Flota::sortujPoNazwie_Malejaco(){
             });
 }
 
-
-
+void Flota::sortujPoMocyNapedu_Rosnaco(){
+    std::ranges::sort(
+            statki,
+            [](const std::unique_ptr<Kosmoplatan>& ptr1, const std::unique_ptr<Kosmoplatan>& ptr2){
+             return ptr1->getMocNapedu() < ptr2->getMocNapedu();
+            });
+}
+void Flota::sortujPoMocyNapedu_Malejaco(){
+    std::ranges::sort(
+            statki,
+            [](const std::unique_ptr<Kosmoplatan>& ptr1, const std::unique_ptr<Kosmoplatan>& ptr2){
+             return ptr1->getMocNapedu() > ptr2->getMocNapedu();
+            });
+}
 
 
 /*----------------------------------------------------*/
