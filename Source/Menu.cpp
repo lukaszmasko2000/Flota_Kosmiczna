@@ -36,10 +36,9 @@ void Menu::uruchomMenu()
         option = static_cast<Choose_Option>(wybor);
 
         auto it = actions.find(option);
-        if (it != actions.end())
-        {
-            it->second();
-        } else std::print("Nieprawidłowy wybór!\n");
+
+        if (it != actions.end())    it->second();
+        else                        std::print("Nieprawidłowy wybór!\n");
        
     } while (option != Choose_Option::Exit);
 }
