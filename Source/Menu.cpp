@@ -26,70 +26,22 @@ void Menu::wyswietlMenu() const
 void Menu::uruchomMenu()
 {
     auto wybor{0};
+    Choose_Option option;
 
     do
     {
         wyswietlMenu();
         wybor = buff.getInt("Wybierz opcje: ");
 
-        switch (wybor)
+        option = static_cast<Choose_Option>(wybor);
+
+        auto it = actions.find(option);
+        if (it != actions.end())
         {
-            case 1:
-                buff.clearScreen();
-                addStatekBojowy();
-                buff.pressEnter();
-                break;
-            case 2:
-                buff.clearScreen();
-                addTransporter();
-                buff.pressEnter();
-                break;
-            case 3:
-                buff.clearScreen();
-                flota.wyswietlFlote();
-                buff.pressEnter();
-                break;
-            case 4:
-                buff.clearScreen();
-                flota.sortujPoZasiegu();
-                buff.pressEnter();
-                break;
-            case 5:
-                buff.clearScreen();
-                zliczStatkiPowyzejMocy();
-                buff.pressEnter();
-                break;
-            case 6:
-                buff.clearScreen();
-                usunCiezkieStatki();
-                buff.pressEnter();
-                break;
-            case 7:
-                buff.clearScreen();
-                std::print("Całkowita moc floty: {} MW\n", flota.obliczCalkowitaMoc());
-                buff.pressEnter();
-                break;
-            case 8:
-                buff.clearScreen();
-                pobierzSzybkieStatki();
-                buff.pressEnter();
-                break;
-            case 9:
-                buff.clearScreen();
-                flota.eksportujNazwy();
-                buff.pressEnter();
-                break;
-            case 0:
-                buff.clearScreen();
-                std::print("Wyjście z programu.\n");
-                buff.pressEnter();
-                break;
-            default:
-                buff.clearScreen();
-                std::print("Nieprawidlowy wybor. Sprobuj ponownie.\n");
-                buff.pressEnter();
-        }
-    } while (wybor != 0);
+            it->second();
+        } else std::print("Nieprawidłowy wybór!\n");
+       
+    } while (option != Choose_Option::Exit);
 }
 
 
