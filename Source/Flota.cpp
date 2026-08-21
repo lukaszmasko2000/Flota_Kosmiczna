@@ -22,6 +22,16 @@ void Flota::wyswietlFlote() const{
 /*--------------------SORT BY-------------------------*/
 /*----------------------------------------------------*/
 
+// From Lower to Higher
+void Flota::sortujPoZasiegu_Rosnaco(){
+    std::ranges::sort(
+            statki,
+            [](const std::unique_ptr<Kosmoplatan>& ptr1, const std::unique_ptr<Kosmoplatan>& ptr2){
+             return ptr1->obliczZasieg() < ptr2->obliczZasieg();
+            });
+}
+
+// From Higher to Lower
 void Flota::sortujPoZasiegu(){
         std::ranges::sort(
             statki,
@@ -30,8 +40,37 @@ void Flota::sortujPoZasiegu(){
             });
 }
 
+void Flota::sortujPoMasie_Rosnaco(){
+    std::ranges::sort(
+            statki,
+            [](const std::unique_ptr<Kosmoplatan>& ptr1, const std::unique_ptr<Kosmoplatan>& ptr2){
+             return ptr1->getMasa() < ptr2->getMasa();
+            });
+}
 
+void Flota::sorturPoMasie_Malejaco(){
+    std::ranges::sort(
+            statki,
+            [](const std::unique_ptr<Kosmoplatan>& ptr1, const std::unique_ptr<Kosmoplatan>& ptr2){
+             return ptr1->getMasa() > ptr2->getMasa();
+            });
+}
 
+void Flota::sortujPoNazwie_Rosnaco(){
+    std::ranges::sort(
+            statki,
+            [](const std::unique_ptr<Kosmoplatan>& ptr1, const std::unique_ptr<Kosmoplatan>& ptr2){
+             return ptr1->getNazwa() < ptr2->getNazwa();
+            });
+}
+
+void Flota::sortujPoNazwie_Malejaco(){
+    std::ranges::sort(
+            statki,
+            [](const std::unique_ptr<Kosmoplatan>& ptr1, const std::unique_ptr<Kosmoplatan>& ptr2){
+             return ptr1->getNazwa() > ptr2->getNazwa();
+            });
+}
 
 
 
