@@ -1,6 +1,9 @@
 #include "Flota.h"
 
 
+/*----------------------------------------------------*/
+/*--------------------SHOW--------------------------*/
+/*----------------------------------------------------*/
 
 void Flota::wyswietlFlote() const{
     std::ranges::for_each(
@@ -9,6 +12,16 @@ void Flota::wyswietlFlote() const{
             ptr->wyswietl(); 
         });
 }
+
+/*----------------------------------------------------*/
+
+
+
+
+/*----------------------------------------------------*/
+/*--------------------SORT BY-------------------------*/
+/*----------------------------------------------------*/
+
 void Flota::sortujPoZasiegu(){
         std::ranges::sort(
             statki,
@@ -16,6 +29,17 @@ void Flota::sortujPoZasiegu(){
              return ptr1->obliczZasieg() > ptr2->obliczZasieg();
             });
 }
+
+
+
+
+
+
+
+
+/*----------------------------------------------------*/
+
+
 int Flota::zliczPowyzejMocy(int minMoc) const{
     return std::ranges::count_if(
         statki,
