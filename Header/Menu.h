@@ -16,7 +16,7 @@
 
 
 enum class Choose_Option {
-    Add_Warship = 0,
+    Add_Warship = 1,
     Add_Transporter,
     Show_The_Navy,               
     Sort_By_Range,
@@ -25,7 +25,7 @@ enum class Choose_Option {
     Calculate_The_Total_Power,
     Download_Fast_Starships,
     Export_Every_Starship_Name,
-    Exit
+    Exit = 0
 };                               
 
 
