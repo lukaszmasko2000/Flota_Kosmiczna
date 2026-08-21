@@ -98,6 +98,11 @@ void Flota::sortujPoMocyNapedu_Malejaco(){
 /*----------------------------------------------------*/
 
 
+/*----------------------------------------------------*/
+/*--------------------COUNT IF------------------------*/
+/*----------------------------------------------------*/
+
+
 int Flota::zliczPowyzejMocy(int minMoc) const{
     return std::ranges::count_if(
         statki,
@@ -105,6 +110,12 @@ int Flota::zliczPowyzejMocy(int minMoc) const{
             return ptr->getMocNapedu() > minMoc;
         });
 }
+
+
+/*----------------------------------------------------*/
+/*--------------------REMOVE IF-----------------------*/
+/*----------------------------------------------------*/
+
 void Flota::usunCiezkie(int maxMasa){
     auto to_erase{
         std::ranges::remove_if(
@@ -114,6 +125,12 @@ void Flota::usunCiezkie(int maxMasa){
             })};
     statki.erase(to_erase.begin(), to_erase.end());
 }
+
+
+/*----------------------------------------------------*/
+/*-------------------ACCUMULATE-----------------------*/
+/*----------------------------------------------------*/
+
 int Flota::obliczCalkowitaMoc() const{
    return std::ranges::fold_left(
         statki,
@@ -128,6 +145,12 @@ int Flota::obliczCalkowitaMoc() const{
         )
     );
 }
+
+/*----------------------------------------------------*/
+/*--------------------SHOW IF-------------------------*/
+/*----------------------------------------------------*/
+
+
 void Flota::pobierzSzybkieStatki(double minZasieg){
     auto it_granica = std::ranges::partition(statki, [minZasieg](const std::unique_ptr<Kosmoplatan>& ptr) {
             return ptr->obliczZasieg() <= minZasieg;
@@ -137,6 +160,13 @@ void Flota::pobierzSzybkieStatki(double minZasieg){
         std::print( " -> Szybki statek: {0}  (Zasięg: {1}) \n", ptr->getNazwa(), ptr->obliczZasieg());
         });
 }
+
+
+/*----------------------------------------------------*/
+/*------------------TRANSFORM-------------------------*/
+/*----------------------------------------------------*/
+
+
 void Flota::eksportujNazwy() const{
     std::ranges::transform(
             statki,
