@@ -40,6 +40,7 @@ void Flota::sortujPoZasiegu(){
             });
 }
 
+// From Lower to Higher
 void Flota::sortujPoMasie_Rosnaco(){
     std::ranges::sort(
             statki,
@@ -48,6 +49,7 @@ void Flota::sortujPoMasie_Rosnaco(){
             });
 }
 
+// From Higher to Lower
 void Flota::sorturPoMasie_Malejaco(){
     std::ranges::sort(
             statki,
@@ -56,6 +58,7 @@ void Flota::sorturPoMasie_Malejaco(){
             });
 }
 
+// From Lower to Higher
 void Flota::sortujPoNazwie_Rosnaco(){
     std::ranges::sort(
             statki,
@@ -64,6 +67,7 @@ void Flota::sortujPoNazwie_Rosnaco(){
             });
 }
 
+// From Higher to Lower
 void Flota::sortujPoNazwie_Malejaco(){
     std::ranges::sort(
             statki,
@@ -72,6 +76,7 @@ void Flota::sortujPoNazwie_Malejaco(){
             });
 }
 
+// From Lower to Higher
 void Flota::sortujPoMocyNapedu_Rosnaco(){
     std::ranges::sort(
             statki,
@@ -79,6 +84,8 @@ void Flota::sortujPoMocyNapedu_Rosnaco(){
              return ptr1->getMocNapedu() < ptr2->getMocNapedu();
             });
 }
+
+// From Higher to Lower
 void Flota::sortujPoMocyNapedu_Malejaco(){
     std::ranges::sort(
             statki,
