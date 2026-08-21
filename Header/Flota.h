@@ -35,7 +35,12 @@ public:
     void wyswietlFlote() const;
 
     //Sort By
+    void sortujPoZasiegu_Rosnaco();
     void sortujPoZasiegu();
+    void sortujPoMasie_Rosnaco();
+    void sorturPoMasie_Malejaco();
+    void sortujPoNazwie_Rosnaco();
+    void sortujPoNazwie_Malejaco();
 
     //Count If
     int zliczPowyzejMocy(int) const;
