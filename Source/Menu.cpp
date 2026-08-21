@@ -3,7 +3,7 @@
 
 //TODO TOMORROW
 // Give some information when you choose the option. When you're printing "Starship navy", tell it.
-// Later try to change switch case condition into something more modern (no in one day, but try prepare code for it)
+
 
 void Menu::wyswietlMenu() const
 {
