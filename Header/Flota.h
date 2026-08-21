@@ -41,6 +41,8 @@ public:
     void sorturPoMasie_Malejaco();
     void sortujPoNazwie_Rosnaco();
     void sortujPoNazwie_Malejaco();
+    void sortujPoMocyNapedu_Rosnaco();
+    void sortujPoMocyNapedu_Malejaco();
 
     //Count If
     int zliczPowyzejMocy(int) const;
