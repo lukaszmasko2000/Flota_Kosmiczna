@@ -116,7 +116,7 @@ void Menu::addTransporter()
 void Menu::zliczStatkiPowyzejMocy()
 {
     auto moc {buff.getInt("Podaj moc do porownania: ")};
-    std::cout << "Liczba statkow powyzej podanej mocy: " << flota.zliczPowyzejMocy(moc) << std::endl;
+    std::print("Liczba statkow powyzej podanej mocy: {}\n",flota.zliczPowyzejMocy(moc));
 }
 void Menu::usunCiezkieStatki()
 {    
