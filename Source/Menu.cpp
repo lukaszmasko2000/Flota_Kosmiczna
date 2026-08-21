@@ -81,15 +81,7 @@ void Menu::uruchomMenu()
                 break;
             case 0:
                 buff.clearScreen();
-<<<<<<< HEAD
-<<<<<<< HEAD
                 std::print("Wyjście z programu.\n");
-=======
-                std::print("Wyjscie z programu.\n");
->>>>>>> df88ec5 (Changed std::cout to std::print)
-=======
-                std::print("Wyjscie z programu.\n");
->>>>>>> df88ec573f99fe00a5d7a1fa7599e2731563329f
                 buff.pressEnter();
                 break;
             default:

@@ -5,6 +5,8 @@
 #include <memory>
 #include <string>
 #include <print>
+#include <functional>
+#include <unordered_map>
 
 #include "Flota.h"
 #include "Kosmoplatan.h"
