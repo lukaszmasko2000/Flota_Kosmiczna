@@ -31,12 +31,25 @@ public:
     }
 
 
+    //Show
     void wyswietlFlote() const;
+
+    //Sort By
     void sortujPoZasiegu();
+
+    //Count If
     int zliczPowyzejMocy(int) const;
+
+    //Remove If
     void usunCiezkie(int);
+
+    //Accumulate
     int obliczCalkowitaMoc() const;
+
+    //Show If
     void pobierzSzybkieStatki(double);
+
+    //Transform
     void eksportujNazwy() const;
 
 
