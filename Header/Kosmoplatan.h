@@ -4,14 +4,6 @@
 #include <iostream>
 #include <print>
 
-//TODO TOMMOROW
-// Change std::cout to std::print
-// And maybe prepare to add more algortihm fuctions at Flota class, but do it later 
-
-//TODO TOMMOROW
-// Change std::cout to std::print
-// And maybe prepare to add more algortihm fuctions at Flota class, but do it later 
-
 
 class Kosmoplatan
 {

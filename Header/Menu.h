@@ -16,11 +16,6 @@
 
 
 //TODO
-// I want to add more options. I mean I can sort ships in more ways like for example:
-// Sort By Range (Decreasing/Increasing), Sort By Name (Decreasing/Increasing)
-// Sort By Weight, Sort By Power etc.
-// And I want to start this menu by Sort_By
-// Then the User will see the other options, it'll be a nice improvement but I might make me much time to do.
 
 enum class Choose_Option {
     Add_Warship = 1,
