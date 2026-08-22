@@ -70,6 +70,7 @@ public:
     void usunCiezkieStatki();
     void pobierzSzybkieStatki();
 
+    void wyswietlMenuSortowaniaPo() const;
     void by_range();
     void by_name();
     void by_weight();

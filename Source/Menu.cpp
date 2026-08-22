@@ -124,28 +124,34 @@ void Menu::wyswietlMenuSortowaniaPo() const
 
 void Menu::by_range(){
     auto wybor{0};
-    Sort_Option_By sort;
+    Sort_Option_By option;
+    do{
 
-
+    }while(option != Sort_Option_By::Go_Back);
 
 }
 void Menu::by_name(){
     auto wybor{0};
-    Sort_Option_By sort;
+    Sort_Option_By option;
+    do{
 
-
+    }while(option != Sort_Option_By::Go_Back);
 
 }
 void Menu::by_weight(){
     auto wybor{0};
-    Sort_Option_By sort;
+    Sort_Option_By option;
+    do{
 
+    }while(option != Sort_Option_By::Go_Back);
 
 }
 void Menu::by_drive_unit(){
     auto wybor{0};
-    Sort_Option_By sort;
+    Sort_Option_By option;
+    do{
 
+    }while(option != Sort_Option_By::Go_Back);
 
 }
 
