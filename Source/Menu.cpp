@@ -78,3 +78,37 @@ void Menu::pobierzSzybkieStatki()
     auto predkosc {buff.getInt("Podaj predkosc do pobrania: ")};
     flota.pobierzSzybkieStatki(predkosc);
 }
+
+
+
+
+
+void Menu::uruchomMenuSortowania(){
+
+}
+void Menu::wyswietlMenuSortowania() const{
+std::println("{:=^50}", " MENU SORTOWANIA ");
+    std::print(
+    R"( 
+1. ...po Zasięgu
+2. ...po Nazwie
+3. ...po Masie
+4. ...po Mocy Napędu
+0. Cofnij
+> )");
+}
+
+
+
+void Menu::by_range(){
+
+}
+void Menu::by_name(){
+
+}
+void Menu::by_weight(){
+
+}
+void Menu::by_drive_unit(){
+
+}

@@ -130,12 +130,32 @@ private:
 
 
     std::unordered_map<Sort_Option, std::function<void()>> sortActions {
-        {Sort_Option::By_Range, [this]{}},
-        {Sort_Option::By_Name, [this]{}},
-        {Sort_Option::By_Weight, [this]{}},
-        {Sort_Option::By_Drive_Unit, [this]{}},
-        {Sort_Option::Go_Back, [this]{}}
-    }
+        {Sort_Option::By_Range, [this]{
+            buff.clearScreen(); 
+            by_range(); 
+            buff.pressEnter(); 
+        }},
+        {Sort_Option::By_Name, [this]{
+            buff.clearScreen(); 
+            by_name(); 
+            buff.pressEnter(); 
+        }},
+        {Sort_Option::By_Weight, [this]{
+            buff.clearScreen(); 
+            by_weight(); 
+            buff.pressEnter(); 
+        }},
+        {Sort_Option::By_Drive_Unit, [this]{
+            buff.clearScreen(); 
+            by_drive_unit(); 
+            buff.pressEnter(); 
+        }},
+        {Sort_Option::Go_Back, [this]{
+            buff.clearScreen(); 
+            uruchomMenuSortowania(); 
+            buff.pressEnter(); 
+        }}
+    };
 
 };
 #endif // MENU_H

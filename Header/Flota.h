@@ -36,7 +36,7 @@ public:
 
     //Sort By
     void sortujPoZasiegu_Rosnaco();
-    void sortujPoZasiegu();
+    void sortujPoZasiegu_Malejaco();
     void sortujPoMasie_Rosnaco();
     void sorturPoMasie_Malejaco();
     void sortujPoNazwie_Rosnaco();
