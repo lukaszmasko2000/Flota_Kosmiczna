@@ -128,18 +128,22 @@ void Menu::by_drive_unit(){
 
 
 
-template <class T>
-void uruchomMenuSortowaniaPo()
-{
-    std::unordered_map<Sort_Option_By, std::function<void()>> sortOptionsBy{
-        {Sort_Option_By::Growing, [this]{
-
-        }},
-        {Sort_Option_By::Descending, [this]{
-            
-        }},
-        {Sort_Option_By::Go_Back, [this]{
-
-        }}
-    };
-}
+// template <class T>
+// void uruchomMenuSortowaniaPo()
+// {
+//     std::unordered_map<Sort_Option_By, std::function<void()>> sortOptionsBy{
+//         {Sort_Option_By::Growing, [this]{
+//             buff.clearScreen(); 
+//             T. 
+//             buff.pressEnter(); 
+//         }},
+//         {Sort_Option_By::Descending, [this]{
+//             buff.clearScreen(); 
+//             by_range(); 
+//             buff.pressEnter(); 
+//         }},
+//         {Sort_Option_By::Go_Back, [this]{
+//             buff.clearScreen();
+//         }}
+//     };
+// }
