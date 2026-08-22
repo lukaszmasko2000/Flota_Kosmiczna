@@ -24,6 +24,8 @@
 //And lately I will make saving. I mean I want to save the date into file with writing. Like it's doing in games.
 //That's my next challenge to do.
 
+//Also I can partition the menu class. I mean I can make more .cpp files If It needed.
+
 enum class Choose_Option {
     Add_Warship = 1,
     Add_Transporter,
