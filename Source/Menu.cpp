@@ -133,7 +133,7 @@ void Menu::by_range(){
 
         auto it = sortActionsByRange.find(option);
 
-        if (it != sortActionsByRange.end())    it->second();
+        if (it != sortActionsByRange.end())    {  it->second(); break; }
         else                            std::print("Nieprawidłowy wybór!\n");
     }while(option != Sort_Option_By::Go_Back);
 
@@ -149,7 +149,7 @@ void Menu::by_name(){
 
         auto it = sortActionsByName.find(option);
 
-        if (it != sortActionsByName.end())    it->second();
+        if (it != sortActionsByName.end())    {  it->second(); break; }
         else                            std::print("Nieprawidłowy wybór!\n");
     }while(option != Sort_Option_By::Go_Back);
 
@@ -165,7 +165,7 @@ void Menu::by_weight(){
 
         auto it = sortActionsByWeight.find(option);
 
-        if (it != sortActionsByWeight.end())    it->second();
+        if (it != sortActionsByWeight.end())  {  it->second(); break; }
         else                            std::print("Nieprawidłowy wybór!\n");
     }while(option != Sort_Option_By::Go_Back);
 
@@ -181,7 +181,7 @@ void Menu::by_drive_unit(){
 
         auto it = sortActionsByDriveUnit.find(option);
 
-        if (it != sortActionsByDriveUnit.end())    it->second();
+        if (it != sortActionsByDriveUnit.end())    {  it->second(); break; }
         else                            std::print("Nieprawidłowy wybór!\n");
     }while(option != Sort_Option_By::Go_Back);
 
