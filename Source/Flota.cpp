@@ -50,7 +50,7 @@ void Flota::sortujPoMasie_Rosnaco(){
 }
 
 // From Higher to Lower
-void Flota::sorturPoMasie_Malejaco(){
+void Flota::sortujPoMasie_Malejaco(){
     std::ranges::sort(
             statki,
             [](const std::unique_ptr<Kosmoplatan>& ptr1, const std::unique_ptr<Kosmoplatan>& ptr2){

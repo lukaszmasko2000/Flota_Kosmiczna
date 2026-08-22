@@ -110,18 +110,42 @@ std::println("{:=^50}", " MENU SORTOWANIA ");
 > )");
 }
 
+void Menu::wyswietlMenuSortowaniaPo() const
+{
+    std::println("{:=^50}", " JAK CHCESZ SORTOWAĆ? ");
+    std::print(
+    R"( 
+1. Rosnąco
+2. Malejąco
+0. Cofnij
+> )");
+}
 
 
 void Menu::by_range(){
+    auto wybor{0};
+    Sort_Option_By sort;
+
+
 
 }
 void Menu::by_name(){
+    auto wybor{0};
+    Sort_Option_By sort;
+
+
 
 }
 void Menu::by_weight(){
+    auto wybor{0};
+    Sort_Option_By sort;
+
 
 }
 void Menu::by_drive_unit(){
+    auto wybor{0};
+    Sort_Option_By sort;
+
 
 }
 

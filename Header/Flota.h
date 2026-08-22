@@ -38,7 +38,7 @@ public:
     void sortujPoZasiegu_Rosnaco();
     void sortujPoZasiegu_Malejaco();
     void sortujPoMasie_Rosnaco();
-    void sorturPoMasie_Malejaco();
+    void sortujPoMasie_Malejaco();
     void sortujPoNazwie_Rosnaco();
     void sortujPoNazwie_Malejaco();
     void sortujPoMocyNapedu_Rosnaco();

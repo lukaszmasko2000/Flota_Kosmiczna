@@ -49,8 +49,8 @@ enum class Sort_Option_By{
     Go_Back = 0
 };
 
-template <class T>
-void uruchomMenuSortowaniaPo();
+// template <class T>
+// void uruchomMenuSortowaniaPo();
 
 
 class Menu
@@ -79,6 +79,7 @@ private:
     Flota flota;
     CinBuf buff;
 
+    /*------------------------------------MAIN MENU-----------------------------------------*/
     std::unordered_map<Choose_Option, std::function<void()>> actions {
         {Choose_Option::Add_Warship, [this] { 
             buff.clearScreen(); 
@@ -127,11 +128,12 @@ private:
         {Choose_Option::Exit, [this] { 
             buff.clearScreen(); 
             std::print("Wyjście z programu.\n"); 
-            buff.pressEnter(); 
+            //buff.pressEnter(); 
         }}
     };
+    /*-------------------------------------------------------------------------------*/
 
-
+    /*----------------------------SORTING SUB-MENU-----------------------------------*/
     std::unordered_map<Sort_Option, std::function<void()>> sortActions {
         {Sort_Option::By_Range, [this]{
             buff.clearScreen(); 
@@ -158,5 +160,61 @@ private:
             //buff.pressEnter(); 
         }}
     };
+    /*-------------------------------------------------------------------------------*/
+
+    /*--------------------------------SORTING SUB------------------------------------*/
+    std::unordered_map<Sort_Option_By, std::function<void()>> sortActionsByRange{
+        {Sort_Option_By::Growing, [this]{
+            buff.clearScreen();
+            flota.sortujPoZasiegu_Rosnaco();
+        }},
+        {Sort_Option_By::Descending, [this]{
+            buff.clearScreen();
+            flota.sortujPoZasiegu_Malejaco();
+        }},
+        {Sort_Option_By::Go_Back, [this]{
+            buff.clearScreen();
+        }}
+    };
+    std::unordered_map<Sort_Option_By, std::function<void()>> sortActionsByName{
+        {Sort_Option_By::Growing, [this]{
+            buff.clearScreen();
+            flota.sortujPoNazwie_Rosnaco();
+        }},
+        {Sort_Option_By::Descending, [this]{
+            buff.clearScreen();
+            flota.sortujPoNazwie_Malejaco();
+        }},
+        {Sort_Option_By::Go_Back, [this]{
+            buff.clearScreen();
+        }}
+    };
+    std::unordered_map<Sort_Option_By, std::function<void()>> sortActionsByWeight{
+        {Sort_Option_By::Growing, [this]{
+            buff.clearScreen();
+            flota.sortujPoMasie_Rosnaco();
+        }},
+        {Sort_Option_By::Descending, [this]{
+            buff.clearScreen();
+            flota.sortujPoMasie_Malejaco();
+        }},
+        {Sort_Option_By::Go_Back, [this]{
+            buff.clearScreen();
+        }}
+    };
+    std::unordered_map<Sort_Option_By, std::function<void()>> sortActionsByDriveUnit{
+        {Sort_Option_By::Growing, [this]{
+            buff.clearScreen();
+            flota.sortujPoMocyNapedu_Rosnaco();
+        }},
+        {Sort_Option_By::Descending, [this]{
+            buff.clearScreen();
+            flota.sortujPoMocyNapedu_Malejaco();
+        }},
+        {Sort_Option_By::Go_Back, [this]{
+            buff.clearScreen();
+        }}
+    };
+    /*-------------------------------------------------------------------------------*/
 };
 #endif // MENU_H
