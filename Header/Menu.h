@@ -40,14 +40,17 @@ enum class Sort_Option {
     By_Name,
     By_Weight,
     By_Drive_Unit,
-    Go_Back = 5
+    Go_Back = 0
 };
 
 enum class Sort_Option_By{
     Growing = 1,
     Descending,
-    Go_Back = 3
+    Go_Back = 0
 };
+
+template <class T>
+void uruchomMenuSortowaniaPo();
 
 
 class Menu
@@ -152,9 +155,8 @@ private:
         }},
         {Sort_Option::Go_Back, [this]{
             buff.clearScreen(); 
-            buff.pressEnter(); 
+            //buff.pressEnter(); 
         }}
     };
-
 };
 #endif // MENU_H

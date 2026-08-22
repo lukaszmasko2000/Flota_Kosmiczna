@@ -124,3 +124,22 @@ void Menu::by_weight(){
 void Menu::by_drive_unit(){
 
 }
+
+
+
+
+template <class T>
+void uruchomMenuSortowaniaPo()
+{
+    std::unordered_map<Sort_Option_By, std::function<void()>> sortOptionsBy{
+        {Sort_Option_By::Growing, [this]{
+
+        }},
+        {Sort_Option_By::Descending, [this]{
+            
+        }},
+        {Sort_Option_By::Go_Back, [this]{
+
+        }}
+    };
+}
