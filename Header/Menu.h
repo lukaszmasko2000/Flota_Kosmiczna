@@ -152,7 +152,6 @@ private:
         }},
         {Sort_Option::Go_Back, [this]{
             buff.clearScreen(); 
-            uruchomMenuSortowania(); 
             buff.pressEnter(); 
         }}
     };

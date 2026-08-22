@@ -80,11 +80,23 @@ void Menu::pobierzSzybkieStatki()
 }
 
 
-
-
-
 void Menu::uruchomMenuSortowania(){
+    auto wybor{0};
+    Sort_Option option;
 
+    do
+    {
+        wyswietlMenuSortowania();
+        wybor = buff.getInt("Wybierz opcje: ");
+
+        option = static_cast<Sort_Option>(wybor);
+
+        auto it = sortActions.find(option);
+
+        if (it != sortActions.end())    it->second();
+        else                            std::print("Nieprawidłowy wybór!\n");
+       
+    } while (option != Sort_Option::Go_Back);
 }
 void Menu::wyswietlMenuSortowania() const{
 std::println("{:=^50}", " MENU SORTOWANIA ");
