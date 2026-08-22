@@ -126,7 +126,15 @@ void Menu::by_range(){
     auto wybor{0};
     Sort_Option_By option;
     do{
+        wyswietlMenuSortowaniaPo();
+        wybor = buff.getInt("Wybierz opcje: ");
 
+        option = static_cast<Sort_Option_By>(wybor);
+
+        auto it = sortActionsByRange.find(option);
+
+        if (it != sortActionsByRange.end())    it->second();
+        else                            std::print("Nieprawidłowy wybór!\n");
     }while(option != Sort_Option_By::Go_Back);
 
 }
@@ -134,7 +142,15 @@ void Menu::by_name(){
     auto wybor{0};
     Sort_Option_By option;
     do{
+        wyswietlMenuSortowaniaPo();
+        wybor = buff.getInt("Wybierz opcje: ");
 
+        option = static_cast<Sort_Option_By>(wybor);
+
+        auto it = sortActionsByName.find(option);
+
+        if (it != sortActionsByName.end())    it->second();
+        else                            std::print("Nieprawidłowy wybór!\n");
     }while(option != Sort_Option_By::Go_Back);
 
 }
@@ -142,15 +158,31 @@ void Menu::by_weight(){
     auto wybor{0};
     Sort_Option_By option;
     do{
+        wyswietlMenuSortowaniaPo();
+        wybor = buff.getInt("Wybierz opcje: ");
 
+        option = static_cast<Sort_Option_By>(wybor);
+
+        auto it = sortActionsByWeight.find(option);
+
+        if (it != sortActionsByWeight.end())    it->second();
+        else                            std::print("Nieprawidłowy wybór!\n");
     }while(option != Sort_Option_By::Go_Back);
 
 }
 void Menu::by_drive_unit(){
     auto wybor{0};
     Sort_Option_By option;
-    do{
+   do{
+        wyswietlMenuSortowaniaPo();
+        wybor = buff.getInt("Wybierz opcje: ");
 
+        option = static_cast<Sort_Option_By>(wybor);
+
+        auto it = sortActionsByDriveUnit.find(option);
+
+        if (it != sortActionsByDriveUnit.end())    it->second();
+        else                            std::print("Nieprawidłowy wybór!\n");
     }while(option != Sort_Option_By::Go_Back);
 
 }
