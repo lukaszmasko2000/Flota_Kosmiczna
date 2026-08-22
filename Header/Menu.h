@@ -15,7 +15,14 @@
 #include "CinBuf.h"
 
 
-//TODO
+//TODO Tommorow
+// Add more option at the menu.
+// For Example if there's a option about removing some functions depending by value then add more.
+// Or count starships above.... , Calculate the total... , Download ... (Slowest, Fastes etc)
+// Export something diffrent than only Name.
+
+//And lately I will make saving. I mean I want to save the date into file with writing. Like it's doing in games.
+//That's my next challenge to do.
 
 enum class Choose_Option {
     Add_Warship = 1,
