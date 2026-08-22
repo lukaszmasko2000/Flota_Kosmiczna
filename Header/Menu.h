@@ -26,14 +26,22 @@ enum class Choose_Option {
     Add_Warship = 1,
     Add_Transporter,
     Show_The_Navy,               
-    Sort_By_Range,
+    Sort_By,
     Count_Starships_Above_Power,
     Remove_Heavy_Starships,
     Calculate_The_Total_Power,
     Download_Fast_Starships,
     Export_Every_Starship_Name,
     Exit = 0
-};                               
+};     
+
+enum class Sort_Option {
+    By_Range = 1,
+    By_Name,
+    By_Weight,
+    By_Drive_Unit,
+    Go_Back = 5
+};
 
 
 class Menu
@@ -70,7 +78,7 @@ private:
             flota.wyswietlFlote(); 
             buff.pressEnter(); 
         }},
-        {Choose_Option::Sort_By_Range, [this] { 
+        {Choose_Option::Sort_By, [this] { 
             buff.clearScreen(); 
             flota.sortujPoZasiegu_Malejaco(); 
             buff.pressEnter(); 
