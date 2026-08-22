@@ -13,7 +13,7 @@ void Menu::wyswietlMenu() const
 1. Dodaj statek bojowy
 2. Dodaj transporter
 3. Wyswietl flote
-4. Sortuj po zasiegu
+4. Sortuj po...
 5. Zlicz statki powyzej mocy
 6. Usun ciezkie statki
 7. Oblicz calkowita moc floty

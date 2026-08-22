@@ -72,7 +72,7 @@ private:
         }},
         {Choose_Option::Sort_By_Range, [this] { 
             buff.clearScreen(); 
-            flota.sortujPoZasiegu(); 
+            flota.sortujPoZasiegu_Malejaco(); 
             buff.pressEnter(); 
         }},
         {Choose_Option::Count_Starships_Above_Power, [this] { 
