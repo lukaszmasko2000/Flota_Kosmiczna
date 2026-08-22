@@ -43,6 +43,12 @@ enum class Sort_Option {
     Go_Back = 5
 };
 
+enum class Sort_Option_By{
+    Growing = 1,
+    Descending,
+    Go_Back = 3
+};
+
 
 class Menu
 {
@@ -52,11 +58,19 @@ public:
     void wyswietlMenu() const;
     void uruchomMenu();
 
+    void uruchomMenuSortowania();
+    void wyswietlMenuSortowania() const;
+
     void addStatekBojowy();
     void addTransporter();
     void zliczStatkiPowyzejMocy();
     void usunCiezkieStatki();
     void pobierzSzybkieStatki();
+
+    void by_range();
+    void by_name();
+    void by_weight();
+    void by_drive_unit();
 
 private:
     Flota flota;
@@ -80,7 +94,7 @@ private:
         }},
         {Choose_Option::Sort_By, [this] { 
             buff.clearScreen(); 
-            flota.sortujPoZasiegu_Malejaco(); 
+            uruchomMenuSortowania(); 
             buff.pressEnter(); 
         }},
         {Choose_Option::Count_Starships_Above_Power, [this] { 
@@ -113,6 +127,15 @@ private:
             buff.pressEnter(); 
         }}
     };
+
+
+    std::unordered_map<Sort_Option, std::function<void()>> sortActions {
+        {Sort_Option::By_Range, [this]{}},
+        {Sort_Option::By_Name, [this]{}},
+        {Sort_Option::By_Weight, [this]{}},
+        {Sort_Option::By_Drive_Unit, [this]{}},
+        {Sort_Option::Go_Back, [this]{}}
+    }
 
 };
 #endif // MENU_H
