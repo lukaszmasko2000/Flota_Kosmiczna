@@ -80,6 +80,11 @@ public:
     void by_weight();
     void by_drive_unit();
 
+    void wyswietlMenuZliczStatkiPo() const;
+    void wyswietlMenuUsun() const;
+    void wyswietlMenuPobierzStatki() const;
+    void wyswietlEksortuj() const;
+
 private:
     Flota flota;
     CinBuf buff;
