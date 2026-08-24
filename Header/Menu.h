@@ -80,10 +80,15 @@ public:
     void by_weight();
     void by_drive_unit();
 
-    void wyswietlMenuZliczStatkiPo() const;
+    void wyswietlMenuZliczStatki() const;
     void wyswietlMenuUsun() const;
     void wyswietlMenuPobierzStatki() const;
-    void wyswietlEksortuj() const;
+    void wyswietlMenuEksortuj() const;
+
+    void uruchomMenuZliczStatki();
+    void uruchomMenuUsun();
+    void uruchomMenuPobierzStatki();
+    void uruchomMenuEksportuj();
 
 private:
     Flota flota;
@@ -226,5 +231,25 @@ private:
         }}
     };
     /*-------------------------------------------------------------------------------*/
+
+    /*------------------------------------MENU COUNT SHIPS-----------------------------------------*/
+
+
+    /*---------------------------------------------------------------------------------------------*/
+    /*------------------------------------MENU REMOVE SHIPS-----------------------------------------*/
+
+
+
+    /*----------------------------------------------------------------------------------------------*/
+    /*------------------------------------MENU DOWNLOAD SHIPS-----------------------------------------*/
+
+
+
+    /*------------------------------------------------------------------------------------------------*/
+    /*------------------------------------MENU EXPORT-----------------------------------------*/
+
+
+    
+    /*----------------------------------------------------------------------------------------*/
 };
 #endif // MENU_H
