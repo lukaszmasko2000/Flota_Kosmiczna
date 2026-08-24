@@ -209,3 +209,15 @@ void Menu::by_drive_unit(){
 //         }}
 //     };
 // }
+
+
+
+void Menu::wyswietlMenuZliczStatki() const{}
+void Menu::wyswietlMenuUsun() const{}
+void Menu::wyswietlMenuPobierzStatki() const{}
+void Menu::wyswietlMenuEksortuj() const{}
+
+void Menu::uruchomMenuZliczStatki(){}
+void Menu::uruchomMenuUsun(){}
+void Menu::uruchomMenuPobierzStatki(){}
+void Menu::uruchomMenuEksportuj(){}
