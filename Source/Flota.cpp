@@ -111,6 +111,24 @@ int Flota::zliczPowyzejMocy(int minMoc) const{
         });
 }
 
+int Flota::zliczPonizejMocy(int maxMoc) const{
+
+}
+
+int Flota::zliczPowyzejMasy(int minMasa) const{
+
+}
+int Flota::zliczPonizejMasy(int maxMasa) const{
+
+}
+int Flota::zliczPowyzejZasiegu(int minZasieg) const{
+
+}
+int Flota::zliczPonizejZasiegu(int maxZasieg) const{
+
+}
+
+
 /*----------------------------------------------------*/
 
 
@@ -127,6 +145,10 @@ void Flota::usunCiezkie(int maxMasa){
             })};
     statki.erase(to_erase.begin(), to_erase.end());
 }
+
+void Flota::usunPoZasiegu(int maxZasieg){}
+void Flota::usunPoMocy(int maxMoc){}
+void Flota::usunPoNazwie(std::string){}
 
 /*----------------------------------------------------*/
 
@@ -149,6 +171,9 @@ int Flota::obliczCalkowitaMoc() const{
     );
 }
 
+int Flota::obliczCalkowitaMase() const{}
+int Flota::obliczCalkowityZasieg() const{}
+
 /*----------------------------------------------------*/
 
 /*----------------------------------------------------*/
@@ -166,6 +191,10 @@ void Flota::pobierzSzybkieStatki(double minZasieg){
         });
 }
 
+void Flota::pobierzStatkiPoMasie(double){}
+void Flota::pobierzStatkiPoZasiegu(double){}
+void Flota::pobierzStatkiPoLiterce(std::string){}
+
 /*----------------------------------------------------*/
 
 /*----------------------------------------------------*/
@@ -180,5 +209,8 @@ void Flota::eksportujNazwy() const{
             [](const std::unique_ptr<Kosmoplatan>& ptr) { return ptr->getNazwa(); }
         );
 }
+void Flota::eksportujMoc() const{}
+void Flota::eksportujZasieg() const{}
+void Flota::eksportujMase() const{}
 
 /*----------------------------------------------------*/
