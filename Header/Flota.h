@@ -61,6 +61,7 @@ public:
 
     //Remove If
     void usunCiezkie(int);
+
     void usunPoMasie(int,int);
     void usunPoZasiegu(int,int);
     void usunPoMocy(int,int);
@@ -73,9 +74,11 @@ public:
 
     //Show If
     void pobierzSzybkieStatki(double);
-    void pobierzStatkiPoMasie(double);
-    void pobierzStatkiPoZasiegu(double);
-    void pobierzStatkiPoLiterce(std::string);
+
+    void pobierzStatkiPoMocy(double,double) const;
+    void pobierzStatkiPoMasie(double,double) const;
+    void pobierzStatkiPoZasiegu(double,double) const;
+    void pobierzStatkiPoLiterce(std::string) const;
 
     //Transform
     void eksportujNazwy() const;

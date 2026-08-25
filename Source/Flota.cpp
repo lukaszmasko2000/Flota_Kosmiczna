@@ -270,9 +270,25 @@ void Flota::pobierzSzybkieStatki(double minZasieg){
         });
 }
 
-void Flota::pobierzStatkiPoMasie(double){}
-void Flota::pobierzStatkiPoZasiegu(double){}
-void Flota::pobierzStatkiPoLiterce(std::string){}
+void Flota::pobierzStatkiPoMocy(double minMoc,double maxMoc) const{
+    auto range = [minMoc, maxMoc](const std::unique_ptr<Kosmoplatan>& ptr) {
+        return (ptr->getMocNapedu() >= minMoc) && (ptr->getMocNapedu() <= maxMoc);
+    };
+
+    for (const auto& statek : statki | std::views::filter(range)) {
+        std::print(" -> Statki po Mocy: {} (Moc: {}) \n", 
+                   minMoc, maxMoc, statek->getNazwa(), statek->getMocNapedu());
+    }
+}
+void Flota::pobierzStatkiPoMasie(double minMasa,double maxMasa) const{
+
+}
+void Flota::pobierzStatkiPoZasiegu(double minZasieg,double maxZasieg) const{
+
+}
+void Flota::pobierzStatkiPoLiterce(std::string) const{
+
+}
 
 /*----------------------------------------------------*/
 
