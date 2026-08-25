@@ -212,10 +212,51 @@ void Menu::by_drive_unit(){
 
 
 
-void Menu::wyswietlMenuZliczStatki() const{}
-void Menu::wyswietlMenuUsun() const{}
-void Menu::wyswietlMenuPobierzStatki() const{}
-void Menu::wyswietlMenuEksortuj() const{}
+void Menu::wyswietlMenuZliczStatki() const{
+    std::println("{:=^50}", " MENU ZLICZANIA ");
+    std::print(
+    R"( 
+1. ...po Mocy
+2. ...po Zasięgu
+3. ...po Masie
+0. Cofnij
+> )");
+
+
+}
+void Menu::wyswietlMenuUsun() const{
+    std::println("{:=^50}", " MENU USUWANIA ");
+    std::print(
+    R"( 
+1. ...po Zasięgu
+2. ...po Nazwie
+3. ...po Masie
+4. ...po Mocy Napędu
+0. Cofnij
+> )");
+}
+void Menu::wyswietlMenuPobierzStatki() const{
+    std::println("{:=^50}", " MENU POBIERANIA ");
+    std::print(
+    R"( 
+1. ...po Zasięgu
+2. ...po Nazwie
+3. ...po Masie
+4. ...po Mocy Napędu
+0. Cofnij
+> )");
+}
+void Menu::wyswietlMenuEksortuj() const{
+    std::println("{:=^50}", " MENU EKSPORTOWANIA ");
+    std::print(
+    R"( 
+1. ...po Zasięgu
+2. ...po Nazwie
+3. ...po Masie
+4. ...po Mocy Napędu
+0. Cofnij
+> )");
+}
 
 void Menu::uruchomMenuZliczStatki(){}
 void Menu::uruchomMenuUsun(){}

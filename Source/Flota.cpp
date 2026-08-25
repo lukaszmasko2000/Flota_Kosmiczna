@@ -165,16 +165,16 @@ void Flota::usunCiezkie(int maxMasa){
     statki.erase(to_erase.begin(), to_erase.end());
 }
 
-void Flota::usunPoZasiegu(int maxZasieg){
+void Flota::usunPoZasiegu(int minZasieg,int maxZasieg){
     auto to_erase{
         std::ranges::remove_if(
             statki,
-            [maxZasieg](const std::unique_ptr<Kosmoplatan>& ptr){
-                return ptr && ptr->obliczZasieg() > maxZasieg;
+            [minZasieg,maxZasieg](const std::unique_ptr<Kosmoplatan>& ptr){
+                return ptr && (ptr->obliczZasieg() > minZasieg) && (ptr->obliczZasieg() < maxZasieg);
             })};
     statki.erase(to_erase.begin(), to_erase.end());
 }
-void Flota::usunPoMocy(int maxMoc){
+void Flota::usunPoMocy(int minMoc, int maxMoc){
     auto to_erase{
         std::ranges::remove_if(
             statki,
