@@ -178,8 +178,8 @@ void Flota::usunPoMocy(int minMoc, int maxMoc){
     auto to_erase{
         std::ranges::remove_if(
             statki,
-            [maxMoc](const std::unique_ptr<Kosmoplatan>& ptr){
-                return ptr && ptr->getMocNapedu() > maxMoc;
+            [minMoc,maxMoc](const std::unique_ptr<Kosmoplatan>& ptr){
+                return ptr && (ptr->getMocNapedu() > minMoc) && (ptr->getMocNapedu() < maxMoc);
             })};
     statki.erase(to_erase.begin(), to_erase.end());
 }
