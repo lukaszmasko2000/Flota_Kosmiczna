@@ -61,6 +61,7 @@ public:
 
     //Remove If
     void usunCiezkie(int);
+    void usunPoMasie(int,int);
     void usunPoZasiegu(int,int);
     void usunPoMocy(int,int);
     void usunPoNazwie(std::string);

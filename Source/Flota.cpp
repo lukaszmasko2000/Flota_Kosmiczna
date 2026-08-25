@@ -155,6 +155,7 @@ int Flota::zliczPonizejZasiegu(int maxZasieg) const{
 /*--------------------REMOVE IF-----------------------*/
 /*----------------------------------------------------*/
 
+//--------------------To remove later-------------------------
 void Flota::usunCiezkie(int maxMasa){
     auto to_erase{
         std::ranges::remove_if(
@@ -164,7 +165,16 @@ void Flota::usunCiezkie(int maxMasa){
             })};
     statki.erase(to_erase.begin(), to_erase.end());
 }
+//-------------------------------------------------------------
 
+void Flota::usunPoMasie(int minMasa, int maxMasa){
+    auto to_erase{
+        std::ranges::remove_if(
+            statki,
+            [minMasa,maxMasa](const std::unique_ptr<Kosmoplatan>& ptr){
+                return ptr && (ptr->getMasa() > minMasa) && (ptr->getMasa() < maxMasa);
+            })};
+}
 void Flota::usunPoZasiegu(int minZasieg,int maxZasieg){
     auto to_erase{
         std::ranges::remove_if(
