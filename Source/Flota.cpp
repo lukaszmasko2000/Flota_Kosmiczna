@@ -112,20 +112,19 @@ int Flota::zliczPowyzejMocy(int minMoc) const{
 }
 
 int Flota::zliczPonizejMocy(int maxMoc) const{
-
+    return 0;
 }
-
 int Flota::zliczPowyzejMasy(int minMasa) const{
-
+    return 0;
 }
 int Flota::zliczPonizejMasy(int maxMasa) const{
-
+    return 0;
 }
 int Flota::zliczPowyzejZasiegu(int minZasieg) const{
-
+    return 0;
 }
 int Flota::zliczPonizejZasiegu(int maxZasieg) const{
-
+    return 0;
 }
 
 
@@ -171,8 +170,8 @@ int Flota::obliczCalkowitaMoc() const{
     );
 }
 
-int Flota::obliczCalkowitaMase() const{}
-int Flota::obliczCalkowityZasieg() const{}
+int Flota::obliczCalkowitaMase() const{return 0;}
+int Flota::obliczCalkowityZasieg() const{return 0;}
 
 /*----------------------------------------------------*/
 
@@ -209,8 +208,26 @@ void Flota::eksportujNazwy() const{
             [](const std::unique_ptr<Kosmoplatan>& ptr) { return ptr->getNazwa(); }
         );
 }
-void Flota::eksportujMoc() const{}
-void Flota::eksportujZasieg() const{}
-void Flota::eksportujMase() const{}
+void Flota::eksportujMoc() const{
+    std::ranges::transform(
+            statki,
+            std::ostream_iterator<int>(std::cout, "\n"),
+            [](const std::unique_ptr<Kosmoplatan>& ptr) { return ptr->getMocNapedu(); }
+    );
+}
+void Flota::eksportujZasieg() const{
+    std::ranges::transform(
+        statki,
+        std::ostream_iterator<int>(std::cout, "\n"),
+        [](const std::unique_ptr<Kosmoplatan>& ptr) { return ptr->obliczZasieg(); }
+    );
+}
+void Flota::eksportujMase() const{
+    std::ranges::transform(
+        statki,
+        std::ostream_iterator<int>(std::cout, "\n"),
+        [](const std::unique_ptr<Kosmoplatan>& ptr) { return ptr->getMasa(); }
+    );
+}
 
 /*----------------------------------------------------*/
