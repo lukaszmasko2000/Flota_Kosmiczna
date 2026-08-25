@@ -2,7 +2,7 @@
 
 
 /*----------------------------------------------------*/
-/*--------------------SHOW--------------------------*/
+/*--------------------FOR EACH------------------------*/
 /*----------------------------------------------------*/
 
 void Flota::wyswietlFlote() const{
@@ -165,9 +165,34 @@ void Flota::usunCiezkie(int maxMasa){
     statki.erase(to_erase.begin(), to_erase.end());
 }
 
-void Flota::usunPoZasiegu(int maxZasieg){}
-void Flota::usunPoMocy(int maxMoc){}
-void Flota::usunPoNazwie(std::string){}
+void Flota::usunPoZasiegu(int maxZasieg){
+    auto to_erase{
+        std::ranges::remove_if(
+            statki,
+            [maxZasieg](const std::unique_ptr<Kosmoplatan>& ptr){
+                return ptr && ptr->obliczZasieg() > maxZasieg;
+            })};
+    statki.erase(to_erase.begin(), to_erase.end());
+}
+void Flota::usunPoMocy(int maxMoc){
+    auto to_erase{
+        std::ranges::remove_if(
+            statki,
+            [maxMoc](const std::unique_ptr<Kosmoplatan>& ptr){
+                return ptr && ptr->getMocNapedu() > maxMoc;
+            })};
+    statki.erase(to_erase.begin(), to_erase.end());
+}
+void Flota::usunPoNazwie(std::string nazwa){
+    auto to_erase{
+        std::ranges::remove_if(
+            statki,
+            [nazwa] (const std::unique_ptr<Kosmoplatan>& ptr){
+                return ptr && ptr->getNazwa() == nazwa;
+            }
+        )};
+    statki.erase(to_erase.begin(), to_erase.end());
+}
 
 /*----------------------------------------------------*/
 
@@ -190,8 +215,33 @@ int Flota::obliczCalkowitaMoc() const{
     );
 }
 
-int Flota::obliczCalkowitaMase() const{return 0;}
-int Flota::obliczCalkowityZasieg() const{return 0;}
+int Flota::obliczCalkowitaMase() const{
+    return std::ranges::fold_left(
+        statki,
+        0,
+        std::bind(
+            std::plus<int>(),
+            std::placeholders::_1,
+            std::bind([](const std::unique_ptr<Kosmoplatan>& ptr) { 
+                return ptr->getMasa(); 
+            }, 
+            std::placeholders::_2)
+        )
+    );}
+int Flota::obliczCalkowityZasieg() const{
+    return std::ranges::fold_left(
+        statki,
+        0,
+        std::bind(
+            std::plus<int>(),
+            std::placeholders::_1,
+            std::bind([](const std::unique_ptr<Kosmoplatan>& ptr) { 
+                return ptr->obliczZasieg(); 
+            }, 
+            std::placeholders::_2)
+        )
+    );
+}
 
 /*----------------------------------------------------*/
 
