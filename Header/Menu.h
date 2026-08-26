@@ -53,6 +53,23 @@ enum class Sort_Option_By{
     Go_Back = 0
 };
 
+
+enum class Count_If_Option {
+    
+};
+enum class Remove_If_Option {
+
+};
+enum class Accumulate_Option {
+
+};
+enum class Filter_Option {
+
+};
+enum class Transform_Option {
+
+};
+
 // template <class T>
 // void uruchomMenuSortowaniaPo();
 
