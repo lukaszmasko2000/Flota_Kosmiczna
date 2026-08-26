@@ -78,7 +78,7 @@ public:
     void pobierzStatkiPoMocy(double,double) const;
     void pobierzStatkiPoMasie(double,double) const;
     void pobierzStatkiPoZasiegu(double,double) const;
-    void pobierzStatkiPoLiterce(std::string) const;
+    void pobierzStatkiPoLiterce(char) const;
 
     //Transform
     void eksportujNazwy() const;

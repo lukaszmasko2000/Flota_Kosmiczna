@@ -256,10 +256,10 @@ int Flota::obliczCalkowityZasieg() const{
 /*----------------------------------------------------*/
 
 /*----------------------------------------------------*/
-/*--------------------SHOW IF-------------------------*/
+/*-----------------------FILTER-----------------------*/
 /*----------------------------------------------------*/
 
-
+//--------------------To remove later-------------------------
 void Flota::pobierzSzybkieStatki(double minZasieg){
     auto it_granica = std::ranges::partition(statki, [minZasieg](const std::unique_ptr<Kosmoplatan>& ptr) {
             return ptr->obliczZasieg() <= minZasieg;
@@ -269,6 +269,7 @@ void Flota::pobierzSzybkieStatki(double minZasieg){
         std::print( " -> Szybki statek: {0}  (Zasięg: {1}) \n", ptr->getNazwa(), ptr->obliczZasieg());
         });
 }
+//-------------------------------------------------------------
 
 void Flota::pobierzStatkiPoMocy(double minMoc,double maxMoc) const{
     auto range = [minMoc, maxMoc](const std::unique_ptr<Kosmoplatan>& ptr) {
@@ -277,17 +278,38 @@ void Flota::pobierzStatkiPoMocy(double minMoc,double maxMoc) const{
 
     for (const auto& statek : statki | std::views::filter(range)) {
         std::print(" -> Statki po Mocy: {} (Moc: {}) \n", 
-                   minMoc, maxMoc, statek->getNazwa(), statek->getMocNapedu());
+                statek->getNazwa(), statek->getMocNapedu());
     }
 }
 void Flota::pobierzStatkiPoMasie(double minMasa,double maxMasa) const{
+    auto range = [minMasa, maxMasa](const std::unique_ptr<Kosmoplatan>& ptr){
+        return (ptr->getMasa() >= minMasa) && (ptr->getMasa() <= maxMasa);
+    };
 
+    for (const auto& statek : statki | std::views::filter(range))
+        std::print(" -> Statki po Masie: {} (Masa: {}) \n",
+                statek->getNazwa(), statek->getMasa());
+        
 }
 void Flota::pobierzStatkiPoZasiegu(double minZasieg,double maxZasieg) const{
+    auto range = [minZasieg, maxZasieg](const std::unique_ptr<Kosmoplatan>& ptr){
+        return (ptr->obliczZasieg() >= minZasieg) && (ptr->obliczZasieg() <= maxZasieg);
+    };
 
+    for (const auto& statek : statki | std::views::filter(range))
+        std::print(" -> Statki po Zasiegu: {} (Masa: {}) \n", 
+                statek->getNazwa(), statek->obliczZasieg());
 }
-void Flota::pobierzStatkiPoLiterce(std::string) const{
+void Flota::pobierzStatkiPoLiterce(char litera) const{
+    auto matchChar = [litera](const std::unique_ptr<Kosmoplatan>& ptr) {
+        auto nazwa = ptr->getNazwa();
+        return !nazwa.empty() && nazwa[0] == litera;
+    };
 
+    for (const auto& statek : statki | std::views::filter(matchChar)) {
+        std::print(" -> Statek na litere '{}': {} \n", 
+                   litera, statek->getNazwa());
+    }
 }
 
 /*----------------------------------------------------*/
