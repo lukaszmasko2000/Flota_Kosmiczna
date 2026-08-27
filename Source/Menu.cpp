@@ -216,22 +216,29 @@ void Menu::wyswietlMenuZliczStatki() const{
     std::println("{:=^50}", " MENU ZLICZANIA ");
     std::print(
     R"( 
-1. ...po Mocy
-2. ...po Zasięgu
-3. ...po Masie
+1. ...w Przedziale Mocy
+2. ...w Przedziale Mase
+3. ...w Przedziale Zasiegu
 0. Cofnij
 > )");
-
-
 }
 void Menu::wyswietlMenuUsun() const{
     std::println("{:=^50}", " MENU USUWANIA ");
     std::print(
     R"( 
-1. ...po Zasięgu
-2. ...po Nazwie
-3. ...po Masie
-4. ...po Mocy Napędu
+1. ...w Przedziale Mocy
+2. ...w Przedziale Mase
+3. ...w Przedziale Zasiegu
+0. Cofnij
+> )");
+}
+void Menu::wyswietlMenuZliczStatki() const{
+    std::println("{:=^50}", " MENU ZLICZANIA ");
+    std::print(
+    R"( 
+1. ...Moc Floty
+2. ...Masę Floty
+3. ...Zasięg Floty
 0. Cofnij
 > )");
 }
@@ -239,10 +246,10 @@ void Menu::wyswietlMenuPobierzStatki() const{
     std::println("{:=^50}", " MENU POBIERANIA ");
     std::print(
     R"( 
-1. ...po Zasięgu
-2. ...po Nazwie
-3. ...po Masie
-4. ...po Mocy Napędu
+1. ...Nazwę statków (Po Literce)
+2. ...Moc statków (przedział)
+3. ...Zasięg statków (przedział)
+4. ...Masę statków (przedział)
 0. Cofnij
 > )");
 }
@@ -250,10 +257,10 @@ void Menu::wyswietlMenuEksortuj() const{
     std::println("{:=^50}", " MENU EKSPORTOWANIA ");
     std::print(
     R"( 
-1. ...po Zasięgu
-2. ...po Nazwie
-3. ...po Masie
-4. ...po Mocy Napędu
+1. ...Nazwę statków
+2. ...Moc statków
+3. ...Zasięg statków
+4. ...Masę statków
 0. Cofnij
 > )");
 }

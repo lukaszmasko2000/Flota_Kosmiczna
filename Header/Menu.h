@@ -55,19 +55,38 @@ enum class Sort_Option_By{
 
 
 enum class Count_If_Option {
-    
+    By_Range = 1,
+    By_Drive_Unit,
+    By_Weight,
+    Go_Back = 0
 };
 enum class Remove_If_Option {
-
+    By_Range = 1,
+    By_Name,
+    By_Weight,
+    By_Drive_Unit,
+    Go_Back = 0
 };
-enum class Accumulate_Option {
-
+enum class Fold_Left_Option {
+    By_Range = 1,
+    By_Drive_Unit,
+    By_Weight,
+    Go_Back = 0
 };
 enum class Filter_Option {
-
+    By_Range = 1,
+    By_Number,
+    By_Name,
+    By_Weight,
+    By_Drive_Unit,
+    Go_Back = 0
 };
 enum class Transform_Option {
-
+    By_Range = 1,
+    By_Name,
+    By_Weight,
+    By_Drive_Unit,
+    Go_Back = 0
 };
 
 // template <class T>
@@ -99,11 +118,13 @@ public:
 
     void wyswietlMenuZliczStatki() const;
     void wyswietlMenuUsun() const;
+    void wyswietlMenuOblicz() const;
     void wyswietlMenuPobierzStatki() const;
     void wyswietlMenuEksortuj() const;
 
     void uruchomMenuZliczStatki();
     void uruchomMenuUsun();
+    void uruchomMenuOblicz();
     void uruchomMenuPobierzStatki();
     void uruchomMenuEksportuj();
 
@@ -248,25 +269,20 @@ private:
         }}
     };
     /*-------------------------------------------------------------------------------*/
-
     /*------------------------------------MENU COUNT SHIPS-----------------------------------------*/
-
-
+    std::unordered_map<Count_If_Option,std::function<void()>> countIfActions{};
     /*---------------------------------------------------------------------------------------------*/
     /*------------------------------------MENU REMOVE SHIPS-----------------------------------------*/
-
-
-
+    std::unordered_map<Remove_If_Option,std::function<void()>> removeIfActions{};
     /*----------------------------------------------------------------------------------------------*/
-    /*------------------------------------MENU DOWNLOAD SHIPS-----------------------------------------*/
-
-
-
+    /*------------------------------------MENU ACCUMULATE SHIPS-------------------------------------*/
+    std::unordered_map<Fold_Left_Option,std::function<void()>> foldLeftActions{};
     /*------------------------------------------------------------------------------------------------*/
-    /*------------------------------------MENU EXPORT-----------------------------------------*/
-
-
-    
+    /*------------------------------------MENU FILTER-----------------------------------------*/
+    std::unordered_map<Filter_Option,std::function<void()>> filterActions{};
+    /*----------------------------------------------------------------------------------------*/
+    /*---------------------------------MENU TRANSFORM-----------------------------------------*/
+    std::unordered_map<Transform_Option,std::function<void()>> transformActions{};
     /*----------------------------------------------------------------------------------------*/
 };
 #endif // MENU_H
