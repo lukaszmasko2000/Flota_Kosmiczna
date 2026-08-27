@@ -232,8 +232,8 @@ void Menu::wyswietlMenuUsun() const{
 0. Cofnij
 > )");
 }
-void Menu::wyswietlMenuZliczStatki() const{
-    std::println("{:=^50}", " MENU ZLICZANIA ");
+void Menu::wyswietlMenuOblicz() const{
+    std::println("{:=^50}", " MENU OBLICZANIA ");
     std::print(
     R"( 
 1. ...Moc Floty
