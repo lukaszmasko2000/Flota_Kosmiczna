@@ -55,16 +55,15 @@ enum class Sort_Option_By{
 
 
 enum class Count_If_Option {
-    By_Range = 1,
-    By_Drive_Unit,
+    By_Power = 1,
     By_Weight,
+    By_Range,
     Go_Back = 0
 };
 enum class Remove_If_Option {
-    By_Range = 1,
-    By_Name,
+    By_Power = 1,
     By_Weight,
-    By_Drive_Unit,
+    By_Range,
     Go_Back = 0
 };
 enum class Fold_Left_Option {
@@ -74,18 +73,17 @@ enum class Fold_Left_Option {
     Go_Back = 0
 };
 enum class Filter_Option {
-    By_Range = 1,
-    By_Number,
-    By_Name,
+    By_Power = 1,
     By_Weight,
-    By_Drive_Unit,
+    By_Range,
+    By_Name,
     Go_Back = 0
 };
 enum class Transform_Option {
-    By_Range = 1,
-    By_Name,
+    By_Power = 1,
     By_Weight,
-    By_Drive_Unit,
+    By_Range,
+    By_Name,
     Go_Back = 0
 };
 
