@@ -5,6 +5,7 @@
 /*--------------------FOR EACH------------------------*/
 /*----------------------------------------------------*/
 
+//Print All Records
 void Flota::wyswietlFlote() const{
     std::ranges::for_each(
         std::as_const(statki), 
@@ -102,7 +103,7 @@ void Flota::sortujPoMocyNapedu_Malejaco(){
 /*--------------------COUNT IF------------------------*/
 /*----------------------------------------------------*/
 
-
+//I will rewrite everything and make it easier xd
 int Flota::zliczPowyzejMocy(int minMoc) const{
     return std::ranges::count_if(
         statki,
@@ -167,6 +168,7 @@ void Flota::usunCiezkie(int maxMasa){
 }
 //-------------------------------------------------------------
 
+//Removing ships by weight in range
 void Flota::usunPoMasie(int minMasa, int maxMasa){
     auto to_erase{
         std::ranges::remove_if(
@@ -175,6 +177,8 @@ void Flota::usunPoMasie(int minMasa, int maxMasa){
                 return ptr && (ptr->getMasa() > minMasa) && (ptr->getMasa() < maxMasa);
             })};
 }
+
+//Removing ships by range in range
 void Flota::usunPoZasiegu(int minZasieg,int maxZasieg){
     auto to_erase{
         std::ranges::remove_if(
@@ -184,6 +188,8 @@ void Flota::usunPoZasiegu(int minZasieg,int maxZasieg){
             })};
     statki.erase(to_erase.begin(), to_erase.end());
 }
+
+//Removing ships by power in range
 void Flota::usunPoMocy(int minMoc, int maxMoc){
     auto to_erase{
         std::ranges::remove_if(
@@ -193,6 +199,8 @@ void Flota::usunPoMocy(int minMoc, int maxMoc){
             })};
     statki.erase(to_erase.begin(), to_erase.end());
 }
+
+//Removing ship by name
 void Flota::usunPoNazwie(std::string nazwa){
     auto to_erase{
         std::ranges::remove_if(
@@ -210,6 +218,7 @@ void Flota::usunPoNazwie(std::string nazwa){
 /*-------------------ACCUMULATE-----------------------*/
 /*----------------------------------------------------*/
 
+//Adding all power
 int Flota::obliczCalkowitaMoc() const{
    return std::ranges::fold_left(
         statki,
@@ -225,6 +234,7 @@ int Flota::obliczCalkowitaMoc() const{
     );
 }
 
+//Adding all weight
 int Flota::obliczCalkowitaMase() const{
     return std::ranges::fold_left(
         statki,
@@ -237,7 +247,10 @@ int Flota::obliczCalkowitaMase() const{
             }, 
             std::placeholders::_2)
         )
-    );}
+    );
+}
+
+//Adding all range
 int Flota::obliczCalkowityZasieg() const{
     return std::ranges::fold_left(
         statki,
@@ -271,6 +284,7 @@ void Flota::pobierzSzybkieStatki(double minZasieg){
 }
 //-------------------------------------------------------------
 
+//Print ships by the range of power
 void Flota::pobierzStatkiPoMocy(double minMoc,double maxMoc) const{
     auto range = [minMoc, maxMoc](const std::unique_ptr<Kosmoplatan>& ptr) {
         return (ptr->getMocNapedu() >= minMoc) && (ptr->getMocNapedu() <= maxMoc);
@@ -281,6 +295,8 @@ void Flota::pobierzStatkiPoMocy(double minMoc,double maxMoc) const{
                 statek->getNazwa(), statek->getMocNapedu());
     }
 }
+
+//Print ships by the range of weight
 void Flota::pobierzStatkiPoMasie(double minMasa,double maxMasa) const{
     auto range = [minMasa, maxMasa](const std::unique_ptr<Kosmoplatan>& ptr){
         return (ptr->getMasa() >= minMasa) && (ptr->getMasa() <= maxMasa);
@@ -291,6 +307,8 @@ void Flota::pobierzStatkiPoMasie(double minMasa,double maxMasa) const{
                 statek->getNazwa(), statek->getMasa());
         
 }
+
+//Print ships by the range of range
 void Flota::pobierzStatkiPoZasiegu(double minZasieg,double maxZasieg) const{
     auto range = [minZasieg, maxZasieg](const std::unique_ptr<Kosmoplatan>& ptr){
         return (ptr->obliczZasieg() >= minZasieg) && (ptr->obliczZasieg() <= maxZasieg);
@@ -300,6 +318,8 @@ void Flota::pobierzStatkiPoZasiegu(double minZasieg,double maxZasieg) const{
         std::print(" -> Statki po Zasiegu: {} (Masa: {}) \n", 
                 statek->getNazwa(), statek->obliczZasieg());
 }
+
+//Print ships by the one number
 void Flota::pobierzStatkiPoLiterce(char litera) const{
     auto matchChar = [litera](const std::unique_ptr<Kosmoplatan>& ptr) {
         auto nazwa = ptr->getNazwa();
@@ -318,7 +338,7 @@ void Flota::pobierzStatkiPoLiterce(char litera) const{
 /*------------------TRANSFORM-------------------------*/
 /*----------------------------------------------------*/
 
-
+//Export ships names
 void Flota::eksportujNazwy() const{
     std::ranges::transform(
             statki,
@@ -326,6 +346,8 @@ void Flota::eksportujNazwy() const{
             [](const std::unique_ptr<Kosmoplatan>& ptr) { return ptr->getNazwa(); }
         );
 }
+
+//Export ships power
 void Flota::eksportujMoc() const{
     std::ranges::transform(
             statki,
@@ -333,6 +355,8 @@ void Flota::eksportujMoc() const{
             [](const std::unique_ptr<Kosmoplatan>& ptr) { return ptr->getMocNapedu(); }
     );
 }
+
+//Export ships range
 void Flota::eksportujZasieg() const{
     std::ranges::transform(
         statki,
@@ -340,6 +364,8 @@ void Flota::eksportujZasieg() const{
         [](const std::unique_ptr<Kosmoplatan>& ptr) { return ptr->obliczZasieg(); }
     );
 }
+
+//Export ships weight
 void Flota::eksportujMase() const{
     std::ranges::transform(
         statki,
