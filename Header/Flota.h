@@ -52,16 +52,16 @@ public:
     void sortujPoMocyNapedu_Malejaco();
 
     //Count If
-    int zliczPowyzejMocy(int) const;
-    int zliczPonizejMocy(int) const;
-    int zliczPowyzejMasy(int) const;
-    int zliczPonizejMasy(int) const;
-    int zliczPowyzejZasiegu(int) const;
-    int zliczPonizejZasiegu(int) const;
+    [[maybe_unused]]    int zliczPowyzejMocy(int) const;
+    [[maybe_unused]]    int zliczPonizejMocy(int) const;
+    [[maybe_unused]]    int zliczPowyzejMasy(int) const;
+    [[maybe_unused]]    int zliczPonizejMasy(int) const;
+    [[maybe_unused]]    int zliczPowyzejZasiegu(int) const;
+    [[maybe_unused]]    int zliczPonizejZasiegu(int) const;
 
-    int zliczMoc(int,int) const;
-    int zliczMase(int,int) const;
-    int zliczZasieg(int,int) const;
+    [[nodiscard]]   int zliczMoc(int,int) const;
+    [[nodiscard]]   int zliczMase(int,int) const;
+    [[nodiscard]]   int zliczZasieg(int,int) const;
 
     //Remove If
     void usunCiezkie(int);
@@ -72,9 +72,9 @@ public:
     void usunPoNazwie(std::string);
 
     //Accumulate
-    int obliczCalkowitaMoc() const;
-    int obliczCalkowitaMase() const;
-    int obliczCalkowityZasieg() const;
+    [[nodiscard]] int obliczCalkowitaMoc() const;
+    [[nodiscard]] int obliczCalkowitaMase() const;
+    [[nodiscard]] int obliczCalkowityZasieg() const;
 
     //Show If
     void pobierzSzybkieStatki(double);

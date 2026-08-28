@@ -345,12 +345,15 @@ private:
     std::unordered_map<Fold_Left_Option,std::function<void()>> foldLeftActions{
         {Fold_Left_Option::By_Power, [this]{
             buff.clearScreen();
+            std::print("Całkowita moc floty: {} MW", flota.obliczCalkowitaMoc());
         }},
         {Fold_Left_Option::By_Weight, [this]{
             buff.clearScreen();
+            std::print("Całkowita masa floty: {} T", flota.obliczCalkowitaMase());
         }},
         {Fold_Left_Option::By_Range, [this]{
             buff.clearScreen();
+            std::print("Calkowity zasięg floty: {} Jednostek", flota.obliczCalkowityZasieg());
         }},
         {Fold_Left_Option::Go_Back, [this]{
             buff.clearScreen();
