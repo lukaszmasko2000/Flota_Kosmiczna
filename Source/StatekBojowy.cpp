@@ -8,5 +8,5 @@ double StatekBojowy::obliczZasieg() const{
 }
 void StatekBojowy::wyswietl() const{
     Kosmoplatan::wyswietl();
-    std::print(" | [Bojowy] Sila ognia: {}\n", silaOgnia);
+    std::print(" [Bojowy] Sila ognia: {}\n", silaOgnia);
 }

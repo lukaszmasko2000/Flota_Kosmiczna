@@ -7,11 +7,16 @@
 
 //Print All Records
 void Flota::wyswietlFlote() const{
+    std::print("{:-<85}\n", "");
+    std::print("| {:<14} | {:>5} | {:>8} | {:>8} | Specjalizacja\n", 
+               "Statek", "Masa", "Moc", "Zasięg");
+    std::print("{:-<85}\n", "");
     std::ranges::for_each(
         std::as_const(statki), 
         [](const std::unique_ptr<Kosmoplatan>& ptr) { 
             ptr->wyswietl(); 
         });
+    std::print("{:-<85}\n", "");
 }
 
 /*----------------------------------------------------*/

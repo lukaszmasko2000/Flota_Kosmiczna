@@ -3,5 +3,5 @@
 
 
 void Kosmoplatan::wyswietl() const{
-    std::print("Statek: {0}, Masa: {1}t, Moc: {2}MW | Zasięg: {3}", nazwa, masa, mocNapedu, obliczZasieg());
+    std::print("| {:<14} | {:>4}t | {:>6}MW | {:>8.2f} | ", nazwa, masa, mocNapedu, obliczZasieg());
 }
