@@ -1,10 +1,8 @@
 #include "Menu.h"
 
 
-//TODO TOMORROW
-// Give some information when you choose the option. When you're printing "Starship navy", tell it.
 
-
+//Show the Interface of the Menu (Frontend)
 void Menu::wyswietlMenu() const
 {
     std::println("{:=^50}", " MENU GLOWNE ");
@@ -23,28 +21,30 @@ void Menu::wyswietlMenu() const
 > )");
 }
 
+
+//Do the background stuff in the menu
 void Menu::uruchomMenu()
 {
-    auto wybor{0};
-    Choose_Option option;
+    auto wybor{0};          /*Init int variable*/
+    Choose_Option option;   /*Init enum object*/
 
     do
     {
-        wyswietlMenu();
-        wybor = buff.getInt("Wybierz opcje: ");
+        wyswietlMenu();                             /*Show The Menu*/
+        wybor = buff.getInt("Wybierz opcje: ");     /*Get the value from User*/
 
-        option = static_cast<Choose_Option>(wybor);
+        option = static_cast<Choose_Option>(wybor); /*Convert it into Enum Class*/
 
-        auto it = actions.find(option);
+        auto it = actions.find(option);             /*Giving users option into iterator*/
 
-        if (it != actions.end())    it->second();
-        else                        std::print("Nieprawidłowy wybór!\n");
+        if (it != actions.end())    it->second();                           /*If it's exist, it choose the option*/
+        else                        std::print("Nieprawidłowy wybór!\n");   /*If not, then the right responde for user*/
        
-    } while (option != Choose_Option::Exit);
+    } while (option != Choose_Option::Exit);       /*Do While is ended if user choose Exit Value (0)*/
 }
 
 
-
+//Add Ship Fighter
 void Menu::addStatekBojowy()
 {
     auto nazwa { buff.getString("Podaj nazwe statku bojowego: ") };
@@ -54,6 +54,8 @@ void Menu::addStatekBojowy()
 
     flota.dodajStatek(std::make_unique<StatekBojowy>(nazwa, masa, mocNapedu, silaOgnia));
 }
+
+//Add Transporter
 void Menu::addTransporter()
 {
     auto nazwa {buff.getString("Podaj nazwe transportera: ")};
@@ -63,6 +65,8 @@ void Menu::addTransporter()
 
     flota.dodajStatek(std::make_unique<Transporter>(nazwa, masa, mocNapedu, przestrzen));
 }
+
+/*------------------------------------TO REMOVE-------------------------------------------*/
 void Menu::zliczStatkiPowyzejMocy()
 {
     auto moc {buff.getInt("Podaj moc do porownania: ")};
@@ -78,8 +82,22 @@ void Menu::pobierzSzybkieStatki()
     auto predkosc {buff.getInt("Podaj predkosc do pobrania: ")};
     flota.pobierzSzybkieStatki(predkosc);
 }
+/*---------------------------------------------------------------------------------------*/
 
+//Sorting Menu Interface
+void Menu::wyswietlMenuSortowania() const{
+std::println("{:=^50}", " MENU SORTOWANIA ");
+    std::print(
+    R"( 
+1. ...po Zasięgu
+2. ...po Nazwie
+3. ...po Masie
+4. ...po Mocy Napędu
+0. Cofnij
+> )");
+}
 
+//Do the background stuff in the sorting menu
 void Menu::uruchomMenuSortowania(){
     auto wybor{0};
     Sort_Option option;
@@ -98,18 +116,8 @@ void Menu::uruchomMenuSortowania(){
        
     } while (option != Sort_Option::Go_Back);
 }
-void Menu::wyswietlMenuSortowania() const{
-std::println("{:=^50}", " MENU SORTOWANIA ");
-    std::print(
-    R"( 
-1. ...po Zasięgu
-2. ...po Nazwie
-3. ...po Masie
-4. ...po Mocy Napędu
-0. Cofnij
-> )");
-}
 
+//Sub-Sorting Menu Interface
 void Menu::wyswietlMenuSortowaniaPo() const
 {
     std::println("{:=^50}", " JAK CHCESZ SORTOWAĆ? ");
@@ -121,7 +129,7 @@ void Menu::wyswietlMenuSortowaniaPo() const
 > )");
 }
 
-
+//Do the background stuff in the sub-sorting menu
 void Menu::by_range(){
     auto wybor{0};
     Sort_Option_By option;

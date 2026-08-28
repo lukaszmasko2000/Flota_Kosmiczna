@@ -96,35 +96,55 @@ class Menu
 public:
     Menu() = default;
     ~Menu() = default;
+
+    //Main Menu
     void wyswietlMenu() const;
     void uruchomMenu();
 
+    //Add ships
+    void addStatekBojowy();
+    void addTransporter();
+
+    //Sorting Menu
     void uruchomMenuSortowania();
     void wyswietlMenuSortowania() const;
 
-    void addStatekBojowy();
-    void addTransporter();
-    void zliczStatkiPowyzejMocy();
-    void usunCiezkieStatki();
-    void pobierzSzybkieStatki();
-
+    //Sorting Sub-Menu
     void wyswietlMenuSortowaniaPo() const;
     void by_range();
     void by_name();
     void by_weight();
     void by_drive_unit();
 
+    //Count Ships Menu
     void wyswietlMenuZliczStatki() const;
-    void wyswietlMenuUsun() const;
-    void wyswietlMenuOblicz() const;
-    void wyswietlMenuPobierzStatki() const;
-    void wyswietlMenuEksortuj() const;
-
+    void zliczStatki();
     void uruchomMenuZliczStatki();
+
+    //Remove Ships Menu
+    void wyswietlMenuUsun() const;
+    void usunStatki();
     void uruchomMenuUsun();
+
+    //Calculater Ships Menu
+    void wyswietlMenuOblicz() const;
+    void obliczStatki();
     void uruchomMenuOblicz();
+
+    //Show Ships Menu
+    void wyswietlMenuPobierzStatki() const;
+    void pobierzStatki();
     void uruchomMenuPobierzStatki();
+
+    //Export Ship Parameters Menu
+    void wyswietlMenuEksortuj() const;
+    void eksportujStatki();
     void uruchomMenuEksportuj();
+    
+
+    void zliczStatkiPowyzejMocy();
+    void usunCiezkieStatki();
+    void pobierzSzybkieStatki();
 
 private:
     Flota flota;
