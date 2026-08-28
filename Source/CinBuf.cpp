@@ -48,3 +48,15 @@ void CinBuf::clearScreen()
     std::print("\033[2J\033[1;1H");
     std::fflush(stdout);
 }
+
+void CinBuf::getMinMaxValue(int& min, int& max){
+    do{
+        min = getInt("Pobierz minimalną wartość mocy: ");
+        max = getInt("Pobierz maksymalną wartość mocy: ");
+            if (min >= max) {
+                std::print("Wartość minimalna nie może być większa/równa maksymalnej\n");
+                pressEnter();
+                clearScreen();
+            }
+        }  while(min >= max);
+}

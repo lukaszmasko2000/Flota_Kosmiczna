@@ -290,6 +290,9 @@ private:
     std::unordered_map<Count_If_Option,std::function<void()>> countIfActions{
         {Count_If_Option::By_Power, [this]{
             buff.clearScreen();
+            auto min{0}, max{0};
+            buff.getMinMaxValue(min,max); 
+            std::print("Ilość statków( po mocy w przedziale [{},{}] ): {} szt", min,max,flota.zliczMoc(min,max));
         }},
         {Count_If_Option::By_Weight, [this]{
             buff.clearScreen();
