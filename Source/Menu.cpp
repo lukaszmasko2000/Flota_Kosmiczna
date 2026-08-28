@@ -220,6 +220,7 @@ void Menu::wyswietlMenuUsun() const{
 1. ...w Przedziale Mocy
 2. ...w Przedziale Masy
 3. ...w Przedziale Zasiegu
+4. ...po Nazwie Statku
 0. Cofnij
 > )");
 }
