@@ -15,7 +15,7 @@ void CinBuf::pressEnter() const
 
 
 int CinBuf::getInt(std::string_view prompt) {
-    int temp{0};
+    auto temp{0};
 
     while (true) {
         std::print("{}", prompt);
@@ -31,6 +31,20 @@ int CinBuf::getInt(std::string_view prompt) {
         
         std::println("Blad: Nieprawidlowy znak. Wprowadz liczbe!");
     }
+}
+
+char CinBuf::getChar(std::string_view prompt){
+    std::print("{}", prompt);
+    std::fflush(stdout);
+
+    std::string line;
+    std::getline(std::cin >> std::ws, line);
+
+    if (!line.empty()) {
+        return line.front();
+    }
+    
+    return '\0'; 
 }
 
 std::string CinBuf::getString(std::string_view prompt)
@@ -49,10 +63,10 @@ void CinBuf::clearScreen()
     std::fflush(stdout);
 }
 
-void CinBuf::getMinMaxValue(int& min, int& max){
+void CinBuf::getMinMaxValue(int& min, int& max, const std::string& prompt){
     do{
-        min = getInt("Pobierz minimalną wartość mocy: ");
-        max = getInt("Pobierz maksymalną wartość mocy: ");
+        min = getInt("Pobierz minimalną wartość " + prompt + ": ");
+        max = getInt("Pobierz maksymalną wartość mocy " + prompt + ": ");
             if (min >= max) {
                 std::print("Wartość minimalna nie może być większa/równa maksymalnej\n");
                 pressEnter();

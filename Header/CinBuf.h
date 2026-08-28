@@ -15,9 +15,10 @@ public:
 
     void pressEnter() const;
     void clearScreen();
-    void getMinMaxValue(int&, int&);
+    void getMinMaxValue(int&, int&,const std::string&);
     int getInt(std::string_view);
     std::string getString(std::string_view);
+    char getChar(std::string_view);
 
 };
 

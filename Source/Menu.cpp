@@ -268,10 +268,10 @@ void Menu::wyswietlMenuPobierzStatki() const{
     std::println("{:=^50}", " MENU POBIERANIA ");
     std::print(
     R"( 
-1. ...Nazwę statków (Po Literce)
-2. ...Moc statków (przedział)
+1. ...Moc statków (przedział)
+2. ...Masę statków (przedział)
 3. ...Zasięg statków (przedział)
-4. ...Masę statków (przedział)
+4. ...Nazwę statków (Po Literce)
 0. Cofnij
 > )");
 }
@@ -294,10 +294,10 @@ void Menu::wyswietlMenuEksortuj() const{
     std::println("{:=^50}", " MENU EKSPORTOWANIA ");
     std::print(
     R"( 
-1. ...Nazwę statków
-2. ...Moc statków
+1. ...Moc statków
+2. ...Masę statków
 3. ...Zasięg statków
-4. ...Masę statków
+4. ...Nazwę statków
 0. Cofnij
 > )");
 }

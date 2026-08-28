@@ -291,19 +291,19 @@ private:
         {Count_If_Option::By_Power, [this]{
             buff.clearScreen();
             auto min{0}, max{0};
-            buff.getMinMaxValue(min,max); 
+            buff.getMinMaxValue(min,max,"mocy"); 
             std::print("Ilość statków( po mocy w przedziale [{},{}] )\n {} szt", min,max,flota.zliczMoc(min,max));
         }},
         {Count_If_Option::By_Weight, [this]{
             buff.clearScreen();
             auto min{0}, max{0};
-            buff.getMinMaxValue(min,max); 
+            buff.getMinMaxValue(min,max,"masy"); 
             std::print("Ilość statków( po masie w przedziale [{},{}] )\n {} szt", min,max,flota.zliczMase(min,max));
         }},
         {Count_If_Option::By_Range, [this]{
             buff.clearScreen();
             auto min{0}, max{0};
-            buff.getMinMaxValue(min,max); 
+            buff.getMinMaxValue(min,max,"zasięgu"); 
             std::print("Ilość statków( po zasiegu w przedziale [{},{}] )\n {} szt", min,max,flota.zliczZasieg(min,max));
         }},
         {Count_If_Option::Go_Back, [this]{
@@ -316,19 +316,19 @@ private:
         {Remove_If_Option::By_Power, [this]{
             buff.clearScreen();
             auto min{0}, max{0};
-            buff.getMinMaxValue(min,max);
+            buff.getMinMaxValue(min,max,"mocy");
             flota.usunPoMocy(min,max);
         }},
         {Remove_If_Option::By_Weight, [this]{
             buff.clearScreen();
             auto min{0}, max{0};
-            buff.getMinMaxValue(min,max); 
+            buff.getMinMaxValue(min,max,"masy"); 
             flota.usunPoMasie(min,max);
         }},
         {Remove_If_Option::By_Range, [this]{
             buff.clearScreen();
             auto min{0}, max{0};
-            buff.getMinMaxValue(min,max);
+            buff.getMinMaxValue(min,max,"zasięgu");
             flota.usunPoZasiegu(min,max); 
         }},
         {Remove_If_Option::By_Name,[this]{
@@ -364,15 +364,26 @@ private:
     std::unordered_map<Filter_Option,std::function<void()>> filterActions{
         {Filter_Option::By_Power, [this]{
             buff.clearScreen();
+            auto min{0}, max{0};
+            buff.getMinMaxValue(min,max,"mocy");
+            flota.pobierzStatkiPoMocy(min,max);
         }},
         {Filter_Option::By_Weight, [this]{
             buff.clearScreen();
+            auto min{0}, max{0};
+            buff.getMinMaxValue(min,max,"masie");
+            flota.pobierzStatkiPoMocy(min,max);
         }},
         {Filter_Option::By_Range, [this]{
             buff.clearScreen();
+            auto min{0}, max{0};
+            buff.getMinMaxValue(min,max,"zasięgu");
+            flota.pobierzStatkiPoMocy(min,max);
         }},
         {Filter_Option::By_Name, [this]{
             buff.clearScreen();
+            auto value {buff.getChar("Podaj literkę: ")};
+            flota.pobierzStatkiPoLiterce(value);
         }},
         {Filter_Option::Go_Back, [this]{
             buff.clearScreen();
@@ -383,15 +394,19 @@ private:
     std::unordered_map<Transform_Option,std::function<void()>> transformActions{
         {Transform_Option::By_Power, [this]{
             buff.clearScreen();
+            flota.eksportujMase();
         }},
         {Transform_Option::By_Weight, [this]{
             buff.clearScreen();
+            flota.eksportujMoc();
         }},
         {Transform_Option::By_Range, [this]{
             buff.clearScreen();
+            flota.eksportujZasieg();
         }},
         {Transform_Option::By_Name, [this]{
             buff.clearScreen();
+            flota.eksportujNazwy();
         }},
         {Transform_Option::Go_Back, [this]{
             buff.clearScreen();
