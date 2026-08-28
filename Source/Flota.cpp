@@ -8,7 +8,7 @@
 //Print All Records
 void Flota::wyswietlFlote() const{
     std::print("{:-<85}\n", "");
-    std::print("| {:<14} | {:>5} | {:>8} | {:>8} | Specjalizacja\n", 
+    std::print("| {:<14} | {:>5} | {:>8} | {:>8} |  Specjalizacja\n", 
                "Statek", "Masa", "Moc", "Zasięg");
     std::print("{:-<85}\n", "");
     std::ranges::for_each(
