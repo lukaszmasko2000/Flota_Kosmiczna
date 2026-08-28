@@ -28,14 +28,14 @@
 
 enum class Choose_Option {
     Add_Warship = 1,
-    Add_Transporter,
-    Show_The_Navy,               
-    Sort_By,
-    Count_Starships_Above_Power,
-    Remove_Heavy_Starships,
-    Calculate_The_Total_Power,
-    Download_Fast_Starships,
-    Export_Every_Starship_Name,
+    Add_Transporter = 2,
+    Show_The_Navy = 3,               
+    Sort_By = 4,
+    Count_By = 5,
+    Remove_By = 6,
+    Calculate_By = 7,
+    Download_By = 8,
+    Export_By = 9,
     Exit = 0
 };     
 
@@ -170,27 +170,27 @@ private:
             uruchomMenuSortowania(); 
             buff.pressEnter(); 
         }},
-        {Choose_Option::Count_Starships_Above_Power, [this] { 
+        {Choose_Option::Count_By, [this] { 
             buff.clearScreen(); 
             uruchomMenuZliczStatki();
             buff.pressEnter(); 
         }},
-        {Choose_Option::Remove_Heavy_Starships, [this] { 
+        {Choose_Option::Remove_By, [this] { 
             buff.clearScreen(); 
             uruchomMenuUsun(); 
             buff.pressEnter(); 
         }},
-        {Choose_Option::Calculate_The_Total_Power, [this] { 
+        {Choose_Option::Calculate_By, [this] { 
             buff.clearScreen(); 
             uruchomMenuOblicz(); 
             buff.pressEnter(); 
         }},
-        {Choose_Option::Download_Fast_Starships, [this] { 
+        {Choose_Option::Download_By, [this] { 
             buff.clearScreen(); 
             uruchomMenuPobierzStatki(); 
             buff.pressEnter(); 
         }},
-        {Choose_Option::Export_Every_Starship_Name, [this] { 
+        {Choose_Option::Export_By, [this] { 
             buff.clearScreen(); 
             uruchomMenuEksportuj(); 
             buff.pressEnter(); 

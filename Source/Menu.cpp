@@ -193,6 +193,21 @@ void Menu::wyswietlMenuZliczStatki() const{
 0. Cofnij
 > )");
 }
+
+void Menu::uruchomMenuZliczStatki(){
+    auto wybor{0};
+    Count_If_Option option;
+   do {
+        wyswietlMenuZliczStatki();
+        wybor =     buff.getInt("Wybierz opcje: ");
+        option =    static_cast<Count_If_Option>(wybor);
+        auto it =   countIfActions.find(option);
+
+        if (it != countIfActions.end())          {it->second(); break;}
+        else                                     std::print("Nieprawidłowy wybór!\n");
+    }   while(option != Count_If_Option::Go_Back);
+}
+
 void Menu::wyswietlMenuUsun() const{
     std::println("{:=^50}", " MENU USUWANIA ");
     std::print(
@@ -203,6 +218,21 @@ void Menu::wyswietlMenuUsun() const{
 0. Cofnij
 > )");
 }
+
+void Menu::uruchomMenuUsun(){
+    auto wybor{0};
+    Remove_If_Option option;
+   do {
+        wyswietlMenuUsun();
+        wybor =     buff.getInt("Wybierz opcje: ");
+        option =    static_cast<Remove_If_Option>(wybor);
+        auto it =   removeIfActions.find(option);
+
+        if (it != removeIfActions.end())          {it->second(); break;}
+        else                                     std::print("Nieprawidłowy wybór!\n");
+    }   while(option != Remove_If_Option::Go_Back);
+}
+
 void Menu::wyswietlMenuOblicz() const{
     std::println("{:=^50}", " MENU OBLICZANIA ");
     std::print(
@@ -213,6 +243,21 @@ void Menu::wyswietlMenuOblicz() const{
 0. Cofnij
 > )");
 }
+
+void Menu::uruchomMenuOblicz(){
+    auto wybor{0};
+    Fold_Left_Option option;
+   do {
+        wyswietlMenuOblicz();
+        wybor =     buff.getInt("Wybierz opcje: ");
+        option =    static_cast<Fold_Left_Option>(wybor);
+        auto it =   foldLeftActions.find(option);
+
+        if (it != foldLeftActions.end())          {it->second(); break;}
+        else                                     std::print("Nieprawidłowy wybór!\n");
+    }   while(option != Fold_Left_Option::Go_Back);
+}
+
 void Menu::wyswietlMenuPobierzStatki() const{
     std::println("{:=^50}", " MENU POBIERANIA ");
     std::print(
@@ -224,6 +269,21 @@ void Menu::wyswietlMenuPobierzStatki() const{
 0. Cofnij
 > )");
 }
+
+void Menu::uruchomMenuPobierzStatki(){
+    auto wybor{0};
+    Filter_Option option;
+   do {
+        wyswietlMenuPobierzStatki();
+        wybor =     buff.getInt("Wybierz opcje: ");
+        option =    static_cast<Filter_Option>(wybor);
+        auto it =   filterActions.find(option);
+
+        if (it != filterActions.end())          {it->second(); break;}
+        else                                     std::print("Nieprawidłowy wybór!\n");
+    }   while(option != Filter_Option::Go_Back);
+}
+
 void Menu::wyswietlMenuEksortuj() const{
     std::println("{:=^50}", " MENU EKSPORTOWANIA ");
     std::print(
@@ -236,8 +296,16 @@ void Menu::wyswietlMenuEksortuj() const{
 > )");
 }
 
-void Menu::uruchomMenuZliczStatki(){}
-void Menu::uruchomMenuUsun(){}
-void Menu::uruchomMenuOblicz(){}
-void Menu::uruchomMenuPobierzStatki(){}
-void Menu::uruchomMenuEksportuj(){}
+void Menu::uruchomMenuEksportuj(){
+    auto wybor{0};
+    Transform_Option option;
+   do {
+        wyswietlMenuEksortuj();
+        wybor =     buff.getInt("Wybierz opcje: ");
+        option =    static_cast<Transform_Option>(wybor);
+        auto it =   transformActions.find(option);
+
+        if (it != transformActions.end())          {it->second(); break;}
+        else                                        std::print("Nieprawidłowy wybór!\n");
+    }   while(option != Transform_Option::Go_Back);
+}
