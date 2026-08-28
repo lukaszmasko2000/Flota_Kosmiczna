@@ -292,13 +292,19 @@ private:
             buff.clearScreen();
             auto min{0}, max{0};
             buff.getMinMaxValue(min,max); 
-            std::print("Ilość statków( po mocy w przedziale [{},{}] ): {} szt", min,max,flota.zliczMoc(min,max));
+            std::print("Ilość statków( po mocy w przedziale [{},{}] )\n {} szt", min,max,flota.zliczMoc(min,max));
         }},
         {Count_If_Option::By_Weight, [this]{
             buff.clearScreen();
+            auto min{0}, max{0};
+            buff.getMinMaxValue(min,max); 
+            std::print("Ilość statków( po masie w przedziale [{},{}] )\n {} szt", min,max,flota.zliczMase(min,max));
         }},
         {Count_If_Option::By_Range, [this]{
             buff.clearScreen();
+            auto min{0}, max{0};
+            buff.getMinMaxValue(min,max); 
+            std::print("Ilość statków( po zasiegu w przedziale [{},{}] )\n {} szt", min,max,flota.zliczZasieg(min,max));
         }},
         {Count_If_Option::Go_Back, [this]{
             buff.clearScreen();
@@ -309,15 +315,26 @@ private:
     std::unordered_map<Remove_If_Option,std::function<void()>> removeIfActions{
         {Remove_If_Option::By_Power, [this]{
             buff.clearScreen();
+            auto min{0}, max{0};
+            buff.getMinMaxValue(min,max);
+            flota.usunPoMocy(min,max);
         }},
         {Remove_If_Option::By_Weight, [this]{
             buff.clearScreen();
+            auto min{0}, max{0};
+            buff.getMinMaxValue(min,max); 
+            flota.usunPoMasie(min,max);
         }},
         {Remove_If_Option::By_Range, [this]{
             buff.clearScreen();
+            auto min{0}, max{0};
+            buff.getMinMaxValue(min,max);
+            flota.usunPoZasiegu(min,max); 
         }},
         {Remove_If_Option::By_Name,[this]{
             buff.clearScreen();
+            auto value{buff.getString("Podaj nazwę statku do usunięcia: ")};
+            flota.usunPoNazwie(value);
         }},
         {Remove_If_Option::Go_Back, [this]{
             buff.clearScreen();
