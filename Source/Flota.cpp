@@ -149,6 +149,30 @@ int Flota::zliczPonizejZasiegu(int maxZasieg) const{
 }
 
 
+
+int Flota::zliczMoc(int minMoc,int maxMoc) const{
+    return std::ranges::count_if(
+        statki,
+        [minMoc, maxMoc](const std::unique_ptr<Kosmoplatan>& ptr){
+            return (ptr->getMocNapedu() > minMoc) && (ptr->getMocNapedu() < maxMoc);
+        });
+}
+int Flota::zliczMase(int minMasa,int maxMasa) const{
+    return std::ranges::count_if(
+        statki,
+        [minMasa, maxMasa](const std::unique_ptr<Kosmoplatan>& ptr){
+            return (ptr->getMasa() > minMasa) && (ptr->getMasa() < maxMasa);
+        });
+}
+int Flota::zliczZasieg(int minZasieg,int maxZasieg) const{
+    return std::ranges::count_if(
+        statki,
+        [minZasieg, maxZasieg](const std::unique_ptr<Kosmoplatan>& ptr){
+            return (ptr->obliczZasieg() > minZasieg) && (ptr->obliczZasieg() < maxZasieg);
+        });
+}
+
+
 /*----------------------------------------------------*/
 
 

@@ -64,12 +64,13 @@ enum class Remove_If_Option {
     By_Power = 1,
     By_Weight,
     By_Range,
+    By_Name,
     Go_Back = 0
 };
 enum class Fold_Left_Option {
-    By_Range = 1,
-    By_Drive_Unit,
+    By_Power = 1,
     By_Weight,
+    By_Range,
     Go_Back = 0
 };
 enum class Filter_Option {
@@ -86,9 +87,6 @@ enum class Transform_Option {
     By_Name,
     Go_Back = 0
 };
-
-// template <class T>
-// void uruchomMenuSortowaniaPo();
 
 
 class Menu
@@ -174,28 +172,29 @@ private:
         }},
         {Choose_Option::Count_Starships_Above_Power, [this] { 
             buff.clearScreen(); 
-            zliczStatkiPowyzejMocy(); 
+            uruchomMenuZliczStatki();
             buff.pressEnter(); 
         }},
         {Choose_Option::Remove_Heavy_Starships, [this] { 
             buff.clearScreen(); 
-            usunCiezkieStatki(); 
+            uruchomMenuUsun(); 
             buff.pressEnter(); 
         }},
         {Choose_Option::Calculate_The_Total_Power, [this] { 
             buff.clearScreen(); 
-            std::print("Całkowita moc floty: {} MW\n", flota.obliczCalkowitaMoc()); 
+            uruchomMenuOblicz(); 
             buff.pressEnter(); 
         }},
         {Choose_Option::Download_Fast_Starships, [this] { 
             buff.clearScreen(); 
-            pobierzSzybkieStatki(); 
+            uruchomMenuPobierzStatki(); 
             buff.pressEnter(); 
         }},
         {Choose_Option::Export_Every_Starship_Name, [this] { 
             buff.clearScreen(); 
-            flota.eksportujNazwy(); 
-            buff.pressEnter(); }},
+            uruchomMenuEksportuj(); 
+            buff.pressEnter(); 
+        }},
         {Choose_Option::Exit, [this] { 
             buff.clearScreen(); 
             std::print("Wyjście z programu.\n"); 
@@ -288,19 +287,93 @@ private:
     };
     /*-------------------------------------------------------------------------------*/
     /*------------------------------------MENU COUNT SHIPS-----------------------------------------*/
-    std::unordered_map<Count_If_Option,std::function<void()>> countIfActions{};
+    std::unordered_map<Count_If_Option,std::function<void()>> countIfActions{
+        {Count_If_Option::By_Power, [this]{
+            buff.clearScreen();
+        }},
+        {Count_If_Option::By_Weight, [this]{
+            buff.clearScreen();
+        }},
+        {Count_If_Option::By_Range, [this]{
+            buff.clearScreen();
+        }},
+        {Count_If_Option::Go_Back, [this]{
+            buff.clearScreen();
+        }}
+    };
     /*---------------------------------------------------------------------------------------------*/
     /*------------------------------------MENU REMOVE SHIPS-----------------------------------------*/
-    std::unordered_map<Remove_If_Option,std::function<void()>> removeIfActions{};
+    std::unordered_map<Remove_If_Option,std::function<void()>> removeIfActions{
+        {Remove_If_Option::By_Power, [this]{
+            buff.clearScreen();
+        }},
+        {Remove_If_Option::By_Weight, [this]{
+            buff.clearScreen();
+        }},
+        {Remove_If_Option::By_Range, [this]{
+            buff.clearScreen();
+        }},
+        {Remove_If_Option::By_Name,[this]{
+            buff.clearScreen();
+        }},
+        {Remove_If_Option::Go_Back, [this]{
+            buff.clearScreen();
+        }}
+    };
     /*----------------------------------------------------------------------------------------------*/
     /*------------------------------------MENU ACCUMULATE SHIPS-------------------------------------*/
-    std::unordered_map<Fold_Left_Option,std::function<void()>> foldLeftActions{};
+    std::unordered_map<Fold_Left_Option,std::function<void()>> foldLeftActions{
+        {Fold_Left_Option::By_Power, [this]{
+            buff.clearScreen();
+        }},
+        {Fold_Left_Option::By_Weight, [this]{
+            buff.clearScreen();
+        }},
+        {Fold_Left_Option::By_Range, [this]{
+            buff.clearScreen();
+        }},
+        {Fold_Left_Option::Go_Back, [this]{
+            buff.clearScreen();
+        }}
+    };
     /*------------------------------------------------------------------------------------------------*/
     /*------------------------------------MENU FILTER-----------------------------------------*/
-    std::unordered_map<Filter_Option,std::function<void()>> filterActions{};
+    std::unordered_map<Filter_Option,std::function<void()>> filterActions{
+        {Filter_Option::By_Power, [this]{
+            buff.clearScreen();
+        }},
+        {Filter_Option::By_Weight, [this]{
+            buff.clearScreen();
+        }},
+        {Filter_Option::By_Range, [this]{
+            buff.clearScreen();
+        }},
+        {Filter_Option::By_Name, [this]{
+            buff.clearScreen();
+        }},
+        {Filter_Option::Go_Back, [this]{
+            buff.clearScreen();
+        }}
+    };
     /*----------------------------------------------------------------------------------------*/
     /*---------------------------------MENU TRANSFORM-----------------------------------------*/
-    std::unordered_map<Transform_Option,std::function<void()>> transformActions{};
+    std::unordered_map<Transform_Option,std::function<void()>> transformActions{
+        {Transform_Option::By_Power, [this]{
+            buff.clearScreen();
+        }},
+        {Transform_Option::By_Weight, [this]{
+            buff.clearScreen();
+        }},
+        {Transform_Option::By_Range, [this]{
+            buff.clearScreen();
+        }},
+        {Transform_Option::By_Name, [this]{
+            buff.clearScreen();
+        }},
+        {Transform_Option::Go_Back, [this]{
+            buff.clearScreen();
+        }}
+    };
     /*----------------------------------------------------------------------------------------*/
 };
 #endif // MENU_H

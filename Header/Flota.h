@@ -59,6 +59,10 @@ public:
     int zliczPowyzejZasiegu(int) const;
     int zliczPonizejZasiegu(int) const;
 
+    int zliczMoc(int,int) const;
+    int zliczMase(int,int) const;
+    int zliczZasieg(int,int) const;
+
     //Remove If
     void usunCiezkie(int);
 

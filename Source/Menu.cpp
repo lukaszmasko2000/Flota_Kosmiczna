@@ -47,10 +47,10 @@ void Menu::uruchomMenu()
 //Add Ship Fighter
 void Menu::addStatekBojowy()
 {
-    auto nazwa { buff.getString("Podaj nazwe statku bojowego: ") };
-    auto masa { buff.getInt("Podaj mase statku (w tonach): ") };
-    auto mocNapedu { buff.getInt("Podaj moc napedu statku (w MW): ") };
-    auto silaOgnia {buff.getInt("Podaj sile ognia statku: ")};
+    auto nazwa      { buff.getString("Podaj nazwe statku bojowego: ") };
+    auto masa       { buff.getInt("Podaj mase statku (w tonach): ") };
+    auto mocNapedu  { buff.getInt("Podaj moc napedu statku (w MW): ") };
+    auto silaOgnia  {buff.getInt("Podaj sile ognia statku: ")};
 
     flota.dodajStatek(std::make_unique<StatekBojowy>(nazwa, masa, mocNapedu, silaOgnia));
 }
@@ -58,10 +58,10 @@ void Menu::addStatekBojowy()
 //Add Transporter
 void Menu::addTransporter()
 {
-    auto nazwa {buff.getString("Podaj nazwe transportera: ")};
-    auto masa{buff.getInt("Podaj mase transportera (w tonach): ")};
-    auto mocNapedu{buff.getInt("Podaj moc napedu transportera (w MW): ")};
-    auto przestrzen{buff.getInt("Podaj przestrzen transportera (w m^3): ")};
+    auto nazwa      {buff.getString("Podaj nazwe transportera: ")};
+    auto masa       {buff.getInt("Podaj mase transportera (w tonach): ")};
+    auto mocNapedu  {buff.getInt("Podaj moc napedu transportera (w MW): ")};
+    auto przestrzen {buff.getInt("Podaj przestrzen transportera (w m^3): ")};
 
     flota.dodajStatek(std::make_unique<Transporter>(nazwa, masa, mocNapedu, przestrzen));
 }
@@ -99,18 +99,15 @@ std::println("{:=^50}", " MENU SORTOWANIA ");
 
 //Do the background stuff in the sorting menu
 void Menu::uruchomMenuSortowania(){
-    auto wybor{0};
+    auto        wybor{0};
     Sort_Option option;
 
     do
     {
         wyswietlMenuSortowania();
-        wybor = buff.getInt("Wybierz opcje: ");
-
-        option = static_cast<Sort_Option>(wybor);
-
-        auto it = sortActions.find(option);
-
+        wybor =     buff.getInt("Wybierz opcje: ");
+        option =    static_cast<Sort_Option>(wybor);
+        auto it =   sortActions.find(option);
         if (it != sortActions.end())    it->second();
         else                            std::print("Nieprawidłowy wybór!\n");
        
@@ -133,91 +130,57 @@ void Menu::wyswietlMenuSortowaniaPo() const
 void Menu::by_range(){
     auto wybor{0};
     Sort_Option_By option;
-    do{
+    do {
         wyswietlMenuSortowaniaPo();
-        wybor = buff.getInt("Wybierz opcje: ");
+        wybor =     buff.getInt("Wybierz opcje: ");
+        option =    static_cast<Sort_Option_By>(wybor);
+        auto it =   sortActionsByRange.find(option);
 
-        option = static_cast<Sort_Option_By>(wybor);
-
-        auto it = sortActionsByRange.find(option);
-
-        if (it != sortActionsByRange.end())    {  it->second(); break; }
-        else                            std::print("Nieprawidłowy wybór!\n");
-    }while(option != Sort_Option_By::Go_Back);
-
+        if (it != sortActionsByRange.end())     {it->second(); break;} 
+        else                                    std::print("Nieprawidłowy wybór!\n");
+    }   while(option != Sort_Option_By::Go_Back);
 }
 void Menu::by_name(){
     auto wybor{0};
     Sort_Option_By option;
-    do{
+    do {
         wyswietlMenuSortowaniaPo();
-        wybor = buff.getInt("Wybierz opcje: ");
+        wybor =     buff.getInt("Wybierz opcje: ");
+        option =    static_cast<Sort_Option_By>(wybor);
+        auto it =   sortActionsByName.find(option);
 
-        option = static_cast<Sort_Option_By>(wybor);
-
-        auto it = sortActionsByName.find(option);
-
-        if (it != sortActionsByName.end())    {  it->second(); break; }
-        else                            std::print("Nieprawidłowy wybór!\n");
-    }while(option != Sort_Option_By::Go_Back);
-
+        if (it != sortActionsByName.end())    {it->second(); break;}
+        else                                   std::print("Nieprawidłowy wybór!\n");
+    }   while(option != Sort_Option_By::Go_Back);
 }
+
 void Menu::by_weight(){
     auto wybor{0};
     Sort_Option_By option;
-    do{
+    do {
         wyswietlMenuSortowaniaPo();
-        wybor = buff.getInt("Wybierz opcje: ");
+        wybor =     buff.getInt("Wybierz opcje: ");
+        option =    static_cast<Sort_Option_By>(wybor);
+        auto it =   sortActionsByWeight.find(option);
 
-        option = static_cast<Sort_Option_By>(wybor);
-
-        auto it = sortActionsByWeight.find(option);
-
-        if (it != sortActionsByWeight.end())  {  it->second(); break; }
-        else                            std::print("Nieprawidłowy wybór!\n");
-    }while(option != Sort_Option_By::Go_Back);
-
+        if (it != sortActionsByWeight.end())   {it->second(); break;}
+        else                                    std::print("Nieprawidłowy wybór!\n");
+    }   while(option != Sort_Option_By::Go_Back);
 }
+
 void Menu::by_drive_unit(){
     auto wybor{0};
     Sort_Option_By option;
-   do{
+   do {
         wyswietlMenuSortowaniaPo();
-        wybor = buff.getInt("Wybierz opcje: ");
+        wybor =     buff.getInt("Wybierz opcje: ");
+        option =    static_cast<Sort_Option_By>(wybor);
+        auto it =   sortActionsByDriveUnit.find(option);
 
-        option = static_cast<Sort_Option_By>(wybor);
-
-        auto it = sortActionsByDriveUnit.find(option);
-
-        if (it != sortActionsByDriveUnit.end())    {  it->second(); break; }
-        else                            std::print("Nieprawidłowy wybór!\n");
-    }while(option != Sort_Option_By::Go_Back);
-
+        if (it != sortActionsByDriveUnit.end())  {it->second(); break;}
+        else                                     std::print("Nieprawidłowy wybór!\n");
+    }   while(option != Sort_Option_By::Go_Back);
 }
-
-
-
-
-// template <class T>
-// void uruchomMenuSortowaniaPo()
-// {
-//     std::unordered_map<Sort_Option_By, std::function<void()>> sortOptionsBy{
-//         {Sort_Option_By::Growing, [this]{
-//             buff.clearScreen(); 
-//             T. 
-//             buff.pressEnter(); 
-//         }},
-//         {Sort_Option_By::Descending, [this]{
-//             buff.clearScreen(); 
-//             by_range(); 
-//             buff.pressEnter(); 
-//         }},
-//         {Sort_Option_By::Go_Back, [this]{
-//             buff.clearScreen();
-//         }}
-//     };
-// }
-
 
 
 void Menu::wyswietlMenuZliczStatki() const{
@@ -225,7 +188,7 @@ void Menu::wyswietlMenuZliczStatki() const{
     std::print(
     R"( 
 1. ...w Przedziale Mocy
-2. ...w Przedziale Mase
+2. ...w Przedziale Masy
 3. ...w Przedziale Zasiegu
 0. Cofnij
 > )");
@@ -235,7 +198,7 @@ void Menu::wyswietlMenuUsun() const{
     std::print(
     R"( 
 1. ...w Przedziale Mocy
-2. ...w Przedziale Mase
+2. ...w Przedziale Masy
 3. ...w Przedziale Zasiegu
 0. Cofnij
 > )");
@@ -275,5 +238,6 @@ void Menu::wyswietlMenuEksortuj() const{
 
 void Menu::uruchomMenuZliczStatki(){}
 void Menu::uruchomMenuUsun(){}
+void Menu::uruchomMenuOblicz(){}
 void Menu::uruchomMenuPobierzStatki(){}
 void Menu::uruchomMenuEksportuj(){}
